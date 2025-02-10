@@ -3,7 +3,7 @@
   "description": "chapanda component pro",
   "private": false,
   "type": "module",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "packageManager": "pnpm@9.15.0",
   "keywords": [
     "typescript",
@@ -29,7 +29,7 @@
     "init": "pnpm i",
     "oxlint:fix": "oxlint -c .oxlintrc.json --fix",
     "build": "pnpm run --filter @chapanda/component-pro-scripts build",
-    "release": "bumpp package.json packages/*/package.json  --commit",
+    "release": "bumpp package.json packages/*/package.json  --commit --push --tag",
     "publish:script": "pnpm run --filter @chapanda/component-pro-scripts publish:npm",
     "clean": "pnpm run --filter @chapanda/component-pro-scripts clean",
     "prepare": "npx simple-git-hooks",
