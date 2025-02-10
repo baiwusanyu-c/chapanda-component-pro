@@ -1,3 +1,23 @@
-.chanpanda-table-pro {
-    background: #efefef;
+
+.cbd-table-pro--title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cbd-table-pro--title-bar{
+    height: 16px;
+    width: 5px;
+    border-radius: 20px;
+    margin-right: 8px;
+    background: var(--cbd-brand-5);
+}
+.cbd-table-pro--title-content{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--cbd-gray-7);
 }
