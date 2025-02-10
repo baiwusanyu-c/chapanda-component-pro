@@ -1,0 +1,35 @@
+{
+  "name": "@chapanda/component-pro-utils",
+  "description": "chapanda component pro",
+  "private": false,
+  "type": "module",
+  "version": "0.0.1-beta.1",
+  "packageManager": "pnpm@9.15.0",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "utils",
+    "vue",
+    "vue3",
+    "vite",
+    "react",
+    "web component"
+  ],
+  "license": "MIT",
+  "author": "baiwusanyu-c",
+  "homepage": "https://github.com/baiwusanyu-c/chapanda-component-pro",
+  "repository": "https://github.com/baiwusanyu-c/chapanda-component-pro",
+  "bugs": "https://github.com/baiwusanyu-c/chapanda-component-pro/issues",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "publish:npm": "pnpm publish --no-git-checks --access public"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
