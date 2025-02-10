@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "no-console": ["off"],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": ["off"]
+  }
+}

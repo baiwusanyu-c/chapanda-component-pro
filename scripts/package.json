@@ -1,0 +1,52 @@
+{
+  "name": "@chapanda/component-pro-scripts",
+  "description": "chapanda component pro",
+  "private": false,
+  "type": "commonjs",
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.15.0",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "utils",
+    "vue",
+    "vue3",
+    "vite",
+    "react",
+    "web component"
+  ],
+  "license": "MIT",
+  "author": "baiwusanyu-c",
+  "homepage": "https://github.com/baiwusanyu-c/chapanda-component-pro",
+  "repository": "https://github.com/baiwusanyu-c/chapanda-component-pro",
+  "bugs": "https://github.com/baiwusanyu-c/chapanda-component-pro/issues",
+  "scripts": {
+    "dev": "cross-env BUILD_MODE=dev tsup-node --config index.mjs",
+    "build": "cross-env BUILD_MODE=prod tsup --config index.mjs && pnpm run gulp:script",
+    "gulp:script": "gulp -f gulp-file.mjs",
+    "publish:npm": "gulp -f publish.mjs",
+    "clean": "node clean.mjs"
+  },
+  "dependencies": {
+    "@ant-design/colors": "^7.1.0",
+    "@chapanda/component-pro-utils": "workspace:*",
+    "antd": "^5.22.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/gulp": "^4.0.17",
+    "baiwusanyu-utils": "^1.0.18",
+    "del": "^8.0.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
+    "gulp": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.10",
+    "rollup": "^4.28.1",
+    "shelljs": "^0.8.5",
+    "tsup": "^8.3.5",
+    "vite": "^6.0.3"
+  }
+}
