@@ -61,7 +61,7 @@ const columns: ProColumns<TableListItem>[] = [
     defaultSearchValue: 'all',
     render: (_) => <a>{_}</a>,
   },
-  {
+ /* {
     title: '应用名称3',
     dataIndex: 'name3',
     searchType: 'input',
@@ -88,7 +88,7 @@ const columns: ProColumns<TableListItem>[] = [
     searchType: 'input',
     defaultSearchValue: 'all',
     render: (_) => <a>{_}</a>,
-  },
+  },*/
   {
     title: '创建者',
     dataIndex: 'creator',

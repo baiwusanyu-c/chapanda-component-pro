@@ -1,6 +1,7 @@
 import React, {CSSProperties, useEffect, useMemo, useState} from 'react'
 import { ChapandaTableProProps } from "../types.ts";
 import { Button, Form, Input, Select } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 export interface FormFilterProps<DataSource, U> {
   columns?: ChapandaTableProProps<DataSource, U>['columns']
   onSubmit?: (params: U) => void
@@ -109,18 +110,55 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
     initForm()
   }, [])
 
+  const [isHasItemWrapped, setHasItemWrapped] = useState(false)
+  useEffect(() => {
+   function handleItemWrapped(){
+     const formEl = document.querySelector('.cbd-table-pro-form-filter--form');
+     const formItemEls = document.querySelectorAll('.cbd-table-pro-form-filter--item');
+     if(formEl && formItemEls && formItemEls.length > 0){
+       const len = formItemEls.length
+       if(len){
+         let isWrapped = false;
+         let prevTop: number | null = null;
+         formItemEls.forEach((child) => {
+           const rect = child.getBoundingClientRect();
+           const currentTop = rect.top;
+
+           // 如果当前子元素的 top 值与前一个不同，说明换行了
+           if (prevTop !== null && currentTop !== prevTop) {
+             isWrapped = true;
+           }
+           prevTop = currentTop; // 更新前一个元素的 top 值
+         });
+         setHasItemWrapped(isWrapped)
+       }
+     }
+   }
+    handleItemWrapped()
+    window.addEventListener('resize', handleItemWrapped)
+    return () => {
+      window.removeEventListener('resize', handleItemWrapped)
+    }
+  }, [isHidden])
+
   return <div className="cbd-table-pro-form-filter">
     <div className='filter-area'>
       <Form
+        className='cbd-table-pro-form-filter--form'
         layout='inline'
         form={form}
         style={formStyle}
       >
         {renderFormItem}
       </Form>
-      <Button type="link"  onClick={handleExpand}>{
-        isHidden ? '展开' : '收起'
-      }</Button>
+      {
+        isHasItemWrapped ?  <Button type="link"
+        iconPosition='end'
+        onClick={handleExpand} icon={ isHidden ? <DownOutlined /> : <UpOutlined />}>
+          { isHidden ? '展开' : '收起' }
+        </Button> : <></>
+      }
+
     </div>
     <div className="operation-area">
       <Button onClick={handleSubmit} type="primary">搜索</Button>
@@ -128,5 +166,3 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
     </div>
   </div>
 }
-
-// TODO: 隐藏展开收起按钮
