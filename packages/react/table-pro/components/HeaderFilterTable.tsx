@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import '../../styles/table-pro/index.css'
 import {TitleArea} from "./TitleArea.tsx";
 import { ChapandaTableProProps } from "../types.ts";

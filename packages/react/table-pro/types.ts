@@ -17,17 +17,21 @@ export type RequestData<T> = {
 
 export interface ProColumns<RecordType = AnyObject> extends ColumnType<RecordType>{
   // TODO: 列是否开启搜索表单，目前支持有限的表单
-  searchType?: 'input' | 'select' | 'textarea' | false;
+  searchType?: 'input' | 'select';
   // TODO: 列处于搜索表单时，其具体的字段参数，默认是 dataIndex
-  searchIndex?: 'string';
+  searchIndex?: string;
+  // TODO: 列处于搜索表单时，其具体的字段参数，默认是 title
+  searchLabel?: string;
   // TODO: 下拉枚举列表，当 searchType 为 select 时生效
   searchEnum?: Record<string, any>;
-  // TODO: 下拉枚举列表 label key，当 searchType 为 select 时生效
-  searchLabelKey?: Record<string, any>;
-  // TODO: 下拉枚举列表 value key，当 searchType 为 select 时生效
-  searchValueKey?: Record<string, any>;
+  // TODO: 下拉枚举列表 label key，当 searchType 为 select 时生效, 默认使用 label
+  searchLabelKey?: string;
+  // TODO: 下拉枚举列表 value key，当 searchType 为 select 时生效, 默认使用 value
+  searchValueKey?: string;
   // TODO: 列处于搜索表单时，对应的默认值
   defaultSearchValue?: any;
+  // TODO: 表达组件的 props，将直接传递给组件
+  formComponentProps?: Record<string, any>;
 }
 export interface ChapandaTableProProps<DataSource, U> extends TableProps<DataSource> {
   // TODO: 标记搜索表单是独立的表单区，还是在表格头部

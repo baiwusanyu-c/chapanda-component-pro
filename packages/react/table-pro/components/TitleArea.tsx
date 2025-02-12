@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react'
 import { Tooltip } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons'
 import '../../styles/table-pro/index.css'
 export interface TitleAreaProps {
   title?: string
@@ -10,13 +11,13 @@ export function TitleArea(props: TitleAreaProps) {
   const {title, tooltip} = props
   const renderTitle = useMemo(() => {
     if (title) {
-      return <Tooltip title={tooltip}>
-
-        <h1 className='cbd-table-pro--title-content'>
+      return <h1 className='cbd-table-pro--title-content'>
           <div className='cbd-table-pro--title-bar'></div>
           {title}
+          <Tooltip title={tooltip}>
+            <InfoCircleOutlined className='cbd-table-pro--title-icon'/>
+          </Tooltip>
         </h1>
-      </Tooltip>
     } else {
       return <></>
     }

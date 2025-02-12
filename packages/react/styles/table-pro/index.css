@@ -21,3 +21,34 @@
     line-height: 32px;
     color: var(--cbd-gray-7);
 }
+
+.cbd-table-pro--title-icon{
+    margin-left: 8px;
+    color: var(--cbd-gray-7);
+}
+
+.cbd-table-pro-form-filter{
+    margin-left: 8px;
+    color: var(--cbd-gray-7);
+}
+
+.ant-form-inline .ant-form-item.cbd-table-pro-form-filter--item{
+    margin-bottom: 16px;
+}
+
+.cbd-table-pro-form-filter .filter-area {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cbd-table-pro-form-filter .operation-area {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+}
+
+.cbd-table-pro .ant-btn+.ant-btn{
+    margin-left: 12px;
+}

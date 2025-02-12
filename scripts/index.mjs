@@ -22,6 +22,7 @@ const baseConfig = {
     'react-dom',
     'react',
     'antd',
+    '@ant-design/icons',
     '@ant-design/colors',
     'fs-extra',
     'magic-string',
