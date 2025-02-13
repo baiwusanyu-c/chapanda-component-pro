@@ -27,9 +27,10 @@
   "bugs": "https://github.com/baiwusanyu-c/chapanda-component-pro/issues",
   "scripts": {
     "init": "pnpm i",
-    "oxlint:fix": "oxlint -c .oxlintrc.json --fix",
     "play:react": "pnpm run --filter @chapanda/style-component-pro-play-react dev",
     "build": "pnpm run --filter @chapanda/component-pro-scripts build",
+    "lint:ts-fix": "biome lint --write --max-diagnostics=100 ./packages",
+    "format": "biome format --write ./packages",
     "release": "bumpp package.json packages/*/package.json  --commit --push --tag",
     "publish:script": "pnpm run --filter @chapanda/component-pro-scripts publish:npm",
     "clean": "pnpm run --filter @chapanda/component-pro-scripts clean",
@@ -44,7 +45,7 @@
     "jsdom": "^25.0.1",
     "lint-staged": "^15.2.11",
     "npm-run-all": "^4.1.5",
-    "oxlint": "^0.15.0",
+    "@biomejs/biome": "1.8.3",
     "simple-git-hooks": "^2.11.1",
     "typescript": "5.3.3"
   },
@@ -53,7 +54,10 @@
     "commit-msg": "node vertify-commit.js"
   },
   "lint-staged": {
-    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint -c .oxlintrc.json --fix"
+    "*.{js,jsx,ts,tsx}": [
+      "biome lint --write --max-diagnostics=100 ./packages",
+      "biome format --write ./packages"
+    ]
   },
   "publishConfig": {
     "access": "public"

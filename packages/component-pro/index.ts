@@ -1,1 +1,1 @@
-export * from '@chapanda/component-pro-react'
+export * from "@chapanda/component-pro-react";
