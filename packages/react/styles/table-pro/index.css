@@ -9,15 +9,15 @@
 
 .cbd-table-pro-form-filter .filter-area {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 16px;
 }
 
 .cbd-table-pro-form-filter .operation-area {
     display: flex;
-    align-items: start;
-    justify-content: end;
+    align-items: flex-start;
+    justify-content: flex-end;
 }
 
 .cbd-table-pro .ant-btn+.ant-btn{
