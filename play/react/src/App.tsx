@@ -111,6 +111,21 @@ const columns: ProColumns<TableListItem>[] = [
     title: '备注',
     dataIndex: 'memo',
     ellipsis: true,
+    searchType: 'select',
+    defaultSearchValue: 'Default',
+    formComponentProps: {
+      allowClear: true,
+      maxTagCount: 1,
+      placeholder: '全部',
+      mode: "multiple"
+    },
+    searchEnum: {
+      all: { label: '全部', value: 'all' },
+      close: { label: '关闭', value: 'Default' },
+      running: { label: '运行中', value: 'Processing' },
+      online: { label: '已上线', value: 'Success' },
+      error: { label: '异常', value: 'Error' },
+    },
   },
   {
     title: '操作',

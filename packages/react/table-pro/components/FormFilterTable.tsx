@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../styles/table-pro/index.css";
-import { TitleArea } from "./TitleArea.tsx";
+import { LayoutTitle } from "../../layout-title";
 import { FormFilter } from "./FormFilter.tsx";
 import type { ChapandaTableProProps } from "../types.ts";
 import { Divider, Table, type TableProps } from "antd";
@@ -122,7 +122,7 @@ export function FormFilterTable<
 	return (
 		<>
 			{searchTitle ? (
-				<TitleArea
+				<LayoutTitle
 					key="title"
 					title={searchTitle.title}
 					tooltip={searchTitle.tooltip}
@@ -142,13 +142,13 @@ export function FormFilterTable<
 			) : (
 				<></>
 			)}
-			<TitleArea
+			<LayoutTitle
 				key="operation"
 				title={(tableTitle || {}).title}
 				tooltip={(tableTitle || {}).tooltip}
 			>
 				{toolBarRender && toolBarRender()}
-			</TitleArea>
+			</LayoutTitle>
 			<Table
 				{...props}
 				pagination={{

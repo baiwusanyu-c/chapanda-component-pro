@@ -1,13 +1,10 @@
 import React, { useMemo } from "react";
 import { Tooltip } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
-import "../../styles/table-pro/index.css";
-export interface TitleAreaProps {
-	title?: string;
-	tooltip?: string;
-	children?: React.ReactNode;
-}
-export function TitleArea(props: TitleAreaProps) {
+import type { LayoutTitleProps } from "./types.ts";
+import "../styles/layout-title/index.css";
+
+export function LayoutTitle(props: LayoutTitleProps) {
 	const { title, tooltip } = props;
 	const renderTitle = useMemo(() => {
 		if (title) {
@@ -30,7 +27,7 @@ export function TitleArea(props: TitleAreaProps) {
 	}, [title, tooltip]);
 	return (
 		<>
-			<div className="title-area">
+			<div className="cbd-table-layout-title">
 				{renderTitle}
 				<div className="operation">{props.children}</div>
 			</div>

@@ -28,6 +28,7 @@ const copyPackageJsonFiles = async(
             import: './index.mjs',
           },
           "./react/styles/table-pro": "./react/styles/table-pro/index.css",
+          "./react/styles/layout-title": "./react/styles/layout-title/index.css",
         }
       } else {
         packageJson.exports = {

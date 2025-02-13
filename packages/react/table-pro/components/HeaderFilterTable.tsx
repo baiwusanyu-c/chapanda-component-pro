@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/table-pro/index.css";
-import { TitleArea } from "./TitleArea.tsx";
+import { LayoutTitle } from "../../layout-title";
 import type { ChapandaTableProProps } from "../types.ts";
 
 export function HeaderFilterTable<
@@ -11,7 +11,7 @@ export function HeaderFilterTable<
 	return (
 		<>
 			{searchTitle ? (
-				<TitleArea title={searchTitle.title} tooltip={searchTitle.tooltip} />
+				<LayoutTitle title={searchTitle.title} tooltip={searchTitle.tooltip} />
 			) : (
 				<></>
 			)}
