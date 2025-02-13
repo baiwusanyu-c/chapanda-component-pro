@@ -1,6 +1,6 @@
 import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
 import type { ChapandaTableProProps } from "../types.ts";
-import { Button, Form, Input, Select, Radio } from "antd";
+import { Button, Form, Input, Select, Radio, DatePicker } from "antd";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
 export interface FormFilterProps<DataSource, U> {
 	columns?: ChapandaTableProProps<DataSource, U>["columns"];
@@ -80,6 +80,9 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 						formComp = (
 							<Radio.Group {...formComponentProps} options={options} />
 						);
+					}
+					if (searchType === "date-picker") {
+						formComp = <DatePicker {...formComponentProps} />;
 					}
 					return (
 						<Form.Item

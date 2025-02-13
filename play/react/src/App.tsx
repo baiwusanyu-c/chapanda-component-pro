@@ -3,6 +3,7 @@ import type { ProColumns } from '@chapanda/component-pro'
 import { ConfigProvider } from "antd";
 import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
 import {useState} from "react";
+import dayjs, {Dayjs} from 'dayjs'
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -20,6 +21,7 @@ export type TableListItem = {
   progress: number;
   money: number;
   memo: string;
+  date: string,
 };
 const tableListDataSource: TableListItem[] = [];
 
@@ -35,6 +37,7 @@ for (let i = 0; i < 5; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
+    date: '2018-05-05',
     memo:
       i % 2 === 1
         ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
@@ -88,6 +91,16 @@ const columns: ProColumns<TableListItem>[] = [
     searchEnum: {
       all: { text: '全部', val: 'all' },
       付小小: { text: '付小小', val: 'fxx'},
+    },
+  },
+  {
+    title: '时间',
+    dataIndex: 'date',
+    searchIndex: 'date',
+    searchType: 'date-picker',
+    defaultSearchValue: dayjs('2018-05-05'),
+    formComponentProps: {
+      picker: "week"
     },
   },
   {
