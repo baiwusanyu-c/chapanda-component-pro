@@ -3,14 +3,6 @@ import * as path from 'path'
 import { defineConfig } from 'tsup'
 import { entry as entryConfig } from './dir.mjs'
 
-function normalizePath(filename) {
-  const res =  filename.split(path.win32.sep).join(path.posix.sep);
-  if (path.win32.isAbsolute(res)) {
-    return res.replace(/^[a-zA-Z]:/, ''); // 移除盘符
-  }
-  return res
-}
-
 let entry = {}
 const buildMode = process.env.BUILD_MODE
 const baseConfig = {

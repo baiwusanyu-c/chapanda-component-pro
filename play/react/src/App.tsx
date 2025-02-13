@@ -2,6 +2,7 @@ import { ChaPandaTablePro as ProTable } from '@chapanda/component-pro'
 import type { ProColumns } from '@chapanda/component-pro'
 import { ConfigProvider } from "antd";
 import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
+import {useState} from "react";
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -43,52 +44,39 @@ for (let i = 0; i < 5; i += 1) {
 
 const columns: ProColumns<TableListItem>[] = [
   {
-    title: '排序',
-    dataIndex: 'index',
-    width: 48,
-  },
-  {
     title: '应用名称',
     dataIndex: 'name',
     searchType: 'input',
     defaultSearchValue: 'all',
+    filters: [
+      {
+        text: 'Joe',
+        value: 'Joe',
+      },
+      {
+        text: 'Jim',
+        value: 'Jim',
+      },
+      {
+        text: 'Submenu',
+        value: 'Submenu',
+        children: [
+          {
+            text: 'Green',
+            value: 'Green',
+          },
+          {
+            text: 'Black',
+            value: 'Black',
+          },
+        ],
+      },
+    ],
+    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
+    sorter: (a, b) => a.name.length - b.name.length,
     render: (_) => <a>{_}</a>,
   },
-  {
-    title: '应用名称2',
-    dataIndex: 'name2',
-    searchType: 'input',
-    defaultSearchValue: 'all',
-    render: (_) => <a>{_}</a>,
-  },
- /* {
-    title: '应用名称3',
-    dataIndex: 'name3',
-    searchType: 'input',
-    defaultSearchValue: 'all',
-    render: (_) => <a>{_}</a>,
-  },
-  {
-    title: '应用名称4',
-    dataIndex: 'name4',
-    searchType: 'input',
-    defaultSearchValue: 'all',
-    render: (_) => <a>{_}</a>,
-  },
-  {
-    title: '应用名称5',
-    dataIndex: 'name5',
-    searchType: 'input',
-    defaultSearchValue: 'all',
-    render: (_) => <a>{_}</a>,
-  },
-  {
-    title: '应用名称6',
-    dataIndex: 'name6',
-    searchType: 'input',
-    defaultSearchValue: 'all',
-    render: (_) => <a>{_}</a>,
-  },*/
+
   {
     title: '创建者',
     dataIndex: 'creator',
@@ -112,7 +100,7 @@ const columns: ProColumns<TableListItem>[] = [
     searchType: 'select',
     defaultSearchValue: 'Default',
     searchEnum: {
-      all: { label: '全部', value: 'Default' },
+      all: { label: '全部', value: 'all' },
       close: { label: '关闭', value: 'Default' },
       running: { label: '运行中', value: 'Processing' },
       online: { label: '已上线', value: 'Success' },
@@ -137,22 +125,22 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
+  const [params, setParams] = useState({
+    ba: 'sxzz'
+  });
   return (
-
     <ConfigProvider theme={genChaPandaAntdTheme()} componentSize="middle">
       <ProTable<TableListItem>
+        params={params}
         columns={columns}
         rowKey="key"
-        pagination={{
-          showQuickJumper: true,
-        }}
-
         request={(params, sorter, filter) => {
           // 表单搜索项会从 params 传入，传递给后端接口。
           console.log(params, sorter, filter);
           return Promise.resolve({
             data: tableListDataSource,
             success: true,
+            total: 100
           });
         }}
         searchTitle={{
@@ -164,13 +152,19 @@ export default () => {
           tooltip: '这是一个标题提示',
         }}
         toolBarRender={() => [
-          <div>
+          <div key='haha'>
+            危险按钮
+          </div>,
+          <div key='hahas' onClick={() => {
+            setParams({
+              ba: 'yyx'
+            })
+          }}>
             危险按钮
           </div>,
         ]}
       />
     </ConfigProvider>
-
 
   );
 };

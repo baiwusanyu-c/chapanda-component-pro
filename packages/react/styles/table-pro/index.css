@@ -1,18 +1,19 @@
 
-.cbd-table-pro--title{
+.cbd-table-pro .title-area {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
 }
 
-.cbd-table-pro--title-bar{
+.cbd-table-pro .title-area .title-bar{
     height: 16px;
     width: 5px;
     border-radius: 20px;
     margin-right: 8px;
     background: var(--cbd-brand-5);
 }
-.cbd-table-pro--title-content{
+.cbd-table-pro .title-area .title-content{
     display: flex;
     align-items: center;
     justify-content: start;
@@ -20,11 +21,19 @@
     font-weight: 700;
     line-height: 32px;
     color: var(--cbd-gray-7);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.cbd-table-pro--title-icon{
+.cbd-table-pro .title-area .title-icon{
     margin-left: 8px;
     color: var(--cbd-gray-7);
+}
+
+.cbd-table-pro .title-area .operation {
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .cbd-table-pro-form-filter{

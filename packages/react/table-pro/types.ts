@@ -1,10 +1,9 @@
 import { TableProps } from 'antd'
 import React from "react";
 import type {
-  SortOrder,
-  ColumnFilterItem,
   ColumnType,
 } from 'antd/lib/table/interface';
+import {FilterValue, SorterResult} from "antd/es/table/interface";
 
 declare type PropertyKey = string | number | symbol;
 export type AnyObject = Record<PropertyKey, any>;
@@ -36,29 +35,30 @@ export interface ProColumns<RecordType = AnyObject> extends ColumnType<RecordTyp
 export interface ChapandaTableProProps<DataSource, U> extends TableProps<DataSource> {
   // TODO: 标记搜索表单是独立的表单区，还是在表格头部
   formType?: 'form' | 'table-head';
-  // TODO: 查询表单区的 title，仅 formType 为 form 时有效
+  // 查询表单区的 title，仅 formType 为 form 时有效
   searchTitle?: {
     title?: string;
     tooltip?: string;
   }
-  // TODO: 表格 title
+  // 表格 title
   tableTitle?: {
     title?: string;
     tooltip?: string;
   }
-  // TODO: 获取 dataSource 的方法
+  // 获取 dataSource 的方法, sort 和 filter 来自
+  //  antd table 的 change 事件，只有对应排序和搜索事件发生时才会传递
   request?: (
     params: U & {
       pageSize?: number;
       current?: number;
-      keyword?: string;
+      [key: string]: any;
     },
-    sort: Record<string, SortOrder>,
-    filter: Record<string, (string | number)[] | null>,
+    sort?: SorterResult<DataSource> | SorterResult<DataSource>[],
+    filter?: Record<string, FilterValue | null>,
   ) => Promise<Partial<RequestData<DataSource>>>;
-  // TODO: request 的参数，修改之后会触发更新
+  // request 的参数，修改之后会触发更新
   params?: U;
-  // TODO: 搜索操作按钮区
+  // 搜索操作按钮区
   toolBarRender?: () => React.ReactNode[];
   // TODO: 列配置项
   columns: ProColumns<DataSource>[]
@@ -66,5 +66,4 @@ export interface ChapandaTableProProps<DataSource, U> extends TableProps<DataSou
 
 // target: 封装分页、搜索查询逻辑、
 // TODO: 搜索表单渲染
-// TODO: 表格渲染
 

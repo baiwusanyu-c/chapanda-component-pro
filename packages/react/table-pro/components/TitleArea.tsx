@@ -11,22 +11,24 @@ export function TitleArea(props: TitleAreaProps) {
   const {title, tooltip} = props
   const renderTitle = useMemo(() => {
     if (title) {
-      return <h1 className='cbd-table-pro--title-content'>
-          <div className='cbd-table-pro--title-bar'></div>
+      return <h1 className='title-content'>
+          <div className='title-bar'></div>
           {title}
-          <Tooltip title={tooltip}>
-            <InfoCircleOutlined className='cbd-table-pro--title-icon'/>
-          </Tooltip>
+          { tooltip ? <Tooltip title={tooltip}>
+            <InfoCircleOutlined className='title-icon'/>
+          </Tooltip> : <></> }
         </h1>
     } else {
-      return <></>
+      return <div></div>
     }
 
   }, [title, tooltip])
   return <>
     <div className="title-area">
       { renderTitle }
-      {props.children}
+      <div className="operation">
+        {props.children}
+      </div>
     </div>
   </>
 }

@@ -5,13 +5,14 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons';
 export interface FormFilterProps<DataSource, U> {
   columns?: ChapandaTableProProps<DataSource, U>['columns']
   onSubmit?: (params: U) => void
-  onReset?: () => void
+  onReset?: (params: U) => void
+  canRender: (isRender: boolean) => void
 }
 
 export function FormFilter<dataSource extends Record<string, any>, U = any>(
   props: FormFilterProps<dataSource, U>
 ) {
-  const { columns, onSubmit, onReset } = props;
+  const { columns, onSubmit, onReset, canRender } = props;
   const [form] = Form.useForm();
   const renderFormItem = useMemo(() => {
     return columns?.map(column => {
@@ -59,7 +60,7 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
            {formComp}
          </Form.Item>
        }
-    })
+    }).filter(r => !!r )
   }, [columns])
 
   // 展开、收起
@@ -78,7 +79,11 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 
   function handleReset(){
     initForm()
-    onReset && onReset()
+    form
+      .validateFields()
+      .then((data) => {
+        onReset && onReset(data)
+      })
   }
 
   function handleSubmit(){
@@ -108,6 +113,8 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 
   useEffect(() => {
     initForm()
+    // 初始化时，搜索一遍
+    handleSubmit()
   }, [])
 
   const [isHasItemWrapped, setHasItemWrapped] = useState(false)
@@ -141,28 +148,40 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
     }
   }, [isHidden])
 
-  return <div className="cbd-table-pro-form-filter">
-    <div className='filter-area'>
-      <Form
-        className='cbd-table-pro-form-filter--form'
-        layout='inline'
-        form={form}
-        style={formStyle}
-      >
-        {renderFormItem}
-      </Form>
-      {
-        isHasItemWrapped ?  <Button type="link"
-        iconPosition='end'
-        onClick={handleExpand} icon={ isHidden ? <DownOutlined /> : <UpOutlined />}>
-          { isHidden ? '展开' : '收起' }
-        </Button> : <></>
-      }
+  useEffect(() => {
+    if(renderFormItem?.length){
+      canRender(true)
+    } else {
+      canRender(false)
+    }
+  }, [renderFormItem]);
+  return <>
+    {
+      renderFormItem?.length ? <div className="cbd-table-pro-form-filter">
+        <div className='filter-area'>
+          <Form
+            className='cbd-table-pro-form-filter--form'
+            layout='inline'
+            form={form}
+            style={formStyle}
+          >
+            {renderFormItem}
+          </Form>
+          {
+            isHasItemWrapped ?  <Button type="link"
+                                        iconPosition='end'
+                                        onClick={handleExpand} icon={ isHidden ? <DownOutlined /> : <UpOutlined />}>
+              { isHidden ? '展开' : '收起' }
+            </Button> : <></>
+          }
 
-    </div>
-    <div className="operation-area">
-      <Button onClick={handleSubmit} type="primary">搜索</Button>
-      <Button onClick={handleReset}>重置</Button>
-    </div>
-  </div>
+        </div>
+        <div className="operation-area">
+          <Button onClick={handleSubmit} type="primary">搜索</Button>
+          <Button onClick={handleReset}>重置</Button>
+        </div>
+      </div> : <></>
+    }
+  </>
+
 }
