@@ -1,6 +1,6 @@
 import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
 import type { ChapandaTableProProps } from "../types.ts";
-import { Button, Form, Input, Select } from "antd";
+import { Button, Form, Input, Select, Radio } from "antd";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
 export interface FormFilterProps<DataSource, U> {
 	columns?: ChapandaTableProProps<DataSource, U>["columns"];
@@ -14,6 +14,22 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 ) {
 	const { columns, onSubmit, onReset, canRender } = props;
 	const [form] = Form.useForm();
+
+	function genOptions(
+		searchEnum: Record<string, any>,
+		searchLabelKey: string,
+		searchValueKey: string,
+	) {
+		return Object.keys(searchEnum).map((key) => {
+			return {
+				...searchEnum[key],
+				label: searchEnum[key][searchLabelKey],
+				value: searchEnum[key][searchValueKey],
+			};
+		});
+	}
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies(genOptions): <不是依赖>
 	const renderFormItem = useMemo(() => {
 		return columns
 			?.map((column) => {
@@ -37,9 +53,11 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 						formComp = <Input {...formComponentProps} style={{ width: 200 }} />;
 					}
 					if (searchType === "select") {
-						const options = Object.keys(searchEnum).map((key) => {
-							return searchEnum[key];
-						});
+						const options = genOptions(
+							searchEnum,
+							searchLabelKey,
+							searchValueKey,
+						);
 						formComp = (
 							<Select
 								{...formComponentProps}
@@ -51,6 +69,16 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 								}}
 								options={options}
 							/>
+						);
+					}
+					if (searchType === "radio") {
+						const options = genOptions(
+							searchEnum,
+							searchLabelKey,
+							searchValueKey,
+						);
+						formComp = (
+							<Radio.Group {...formComponentProps} options={options} />
 						);
 					}
 					return (

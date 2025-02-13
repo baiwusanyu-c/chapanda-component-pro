@@ -15,16 +15,16 @@ export type RequestData<T> = {
 export interface ProColumns<RecordType = AnyObject>
 	extends ColumnType<RecordType> {
 	// TODO: 列是否开启搜索表单，目前支持有限的表单
-	searchType?: "input" | "select";
+	searchType?: "input" | "select" | "date-picker" | "radio";
 	// 列处于搜索表单时，其具体的字段参数，默认是 dataIndex
 	searchIndex?: string;
 	// 列处于搜索表单时，其具体的字段参数，默认是 title
 	searchLabel?: string;
-	// 下拉枚举列表，当 searchType 为 select 时生效
+	// 下拉枚举列表，当 searchType 为 select、radio 时生效
 	searchEnum?: Record<string, any>;
-	// 下拉枚举列表 label key，当 searchType 为 select 时生效, 默认使用 label
+	// 下拉枚举列表 label key，当 searchType 为 select、radio 时生效, 默认使用 label
 	searchLabelKey?: string;
-	// 下拉枚举列表 value key，当 searchType 为 select 时生效, 默认使用 value
+	// 下拉枚举列表 value key，当 searchType 为 select、radio 时生效, 默认使用 value
 	searchValueKey?: string;
 	// 列处于搜索表单时，对应的默认值
 	defaultSearchValue?: any;
@@ -65,4 +65,5 @@ export interface ChapandaTableProProps<DataSource, U>
 }
 
 // target: 封装分页、搜索查询逻辑、
-// TODO: 搜索表单渲染
+// TODO: columns 搜索表单渲染 select 多选时，全选
+// TODO: columns 搜索表单渲染 DatePicker

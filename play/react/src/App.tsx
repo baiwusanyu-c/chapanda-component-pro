@@ -81,17 +81,13 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建者',
     dataIndex: 'creator',
     searchIndex: 'creatorCustom',
-    searchType: 'select',
+    searchType: 'radio',
     defaultSearchValue: 'all',
     searchLabelKey: 'text',
     searchValueKey: 'val',
     searchEnum: {
       all: { text: '全部', val: 'all' },
-      付小小: { text: '付小小', val: '付小小'},
-      曲丽丽: { text: '曲丽丽', val: '曲丽丽'},
-      林东东: { text: '林东东', val: '林东东'},
-      陈帅帅: { text: '陈帅帅', val: '陈帅帅'},
-      兼某某: { text: '兼某某', val: '兼某某'},
+      付小小: { text: '付小小', val: 'fxx'},
     },
   },
   {
@@ -112,7 +108,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'memo',
     ellipsis: true,
     searchType: 'select',
-    defaultSearchValue: 'Default',
+    defaultSearchValue: ['Default'],
     formComponentProps: {
       allowClear: true,
       maxTagCount: 1,
