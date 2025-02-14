@@ -1,4 +1,10 @@
-import React, { type CSSProperties, useEffect, useMemo, useState } from "react";
+import React, {
+	type CSSProperties,
+	type KeyboardEvent,
+	useEffect,
+	useMemo,
+	useState,
+} from "react";
 import type { ChapandaTableProProps } from "../types.ts";
 import { Button, Form, Input, Select, Radio, DatePicker } from "antd";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
@@ -54,6 +60,7 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 							<Input
 								style={{ width: 200 }}
 								autoComplete="off"
+								onPressEnter={handleKeyEnter}
 								{...formComponentProps}
 							/>
 						);
@@ -67,13 +74,14 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 						formComp = (
 							<Select
 								style={{ width: 200 }}
-								{...formComponentProps}
 								fieldNames={{
 									label: searchLabelKey,
 									value: searchValueKey,
 									...(formComponentProps || {}).fieldNames,
 								}}
+								onKeyDown={handleKeyEnter}
 								options={options}
+								{...formComponentProps}
 							/>
 						);
 					}
@@ -124,6 +132,12 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 		form.validateFields().then((data) => {
 			onReset && onReset(data);
 		});
+	}
+
+	function handleKeyEnter(e: KeyboardEvent) {
+		if (`${e.key}` === "Enter") {
+			handleSubmit();
+		}
 	}
 
 	function handleSubmit() {

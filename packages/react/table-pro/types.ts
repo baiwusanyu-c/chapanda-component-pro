@@ -67,7 +67,6 @@ export interface ChapandaTableProProps<DataSource, U>
 // target: 封装分页、搜索查询逻辑、
 // TODO: columns 搜索表单渲染 select 多选时，全选
 // TODO: 不在 columns 中的搜索表单
-// TODO: keydown 搜索
-// TODO: option sorter
+
 // TODO: 表单组件渲染顺序
 // TODO: 手动搜索
