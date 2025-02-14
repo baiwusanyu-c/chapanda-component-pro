@@ -51,6 +51,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'name',
     searchType: 'input',
     defaultSearchValue: 'all',
+    searchRenderIndex: 5,
     filters: [
       {
         text: 'Joe',

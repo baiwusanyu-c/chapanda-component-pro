@@ -18,6 +18,8 @@ export interface ProColumns<RecordType = AnyObject>
 	searchType?: "input" | "select" | "date-picker" | "radio";
 	// 列处于搜索表单时，其具体的字段参数，默认是 dataIndex
 	searchIndex?: string;
+	// 列处于搜索表单时, 渲染的顺序
+	searchRenderIndex?: number;
 	// 列处于搜索表单时，其具体的字段参数，默认是 title
 	searchLabel?: string;
 	// 下拉枚举列表，当 searchType 为 select、radio 时生效
@@ -67,6 +69,4 @@ export interface ChapandaTableProProps<DataSource, U>
 // target: 封装分页、搜索查询逻辑、
 // TODO: columns 搜索表单渲染 select 多选时，全选
 // TODO: 不在 columns 中的搜索表单
-
-// TODO: 表单组件渲染顺序
 // TODO: 手动搜索

@@ -38,7 +38,12 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 	// biome-ignore lint/correctness/useExhaustiveDependencies(genOptions): <不是依赖>
 	const renderFormItem = useMemo(() => {
 		return columns
-			?.map((column) => {
+			?.sort((a, b) => {
+				const sortKeyA = a.searchRenderIndex || 0;
+				const sortKeyB = b.searchRenderIndex || 0;
+				return sortKeyA - sortKeyB;
+			})
+			.map((column) => {
 				const {
 					title,
 					dataIndex,
