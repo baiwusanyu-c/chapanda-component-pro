@@ -16,15 +16,15 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 	const [form] = Form.useForm();
 
 	function genOptions(
-		searchEnum: Record<string, any>,
+		searchEnum: Record<string, any>[],
 		searchLabelKey: string,
 		searchValueKey: string,
 	) {
-		return Object.keys(searchEnum).map((key) => {
+		return searchEnum.map((v) => {
 			return {
-				...searchEnum[key],
-				label: searchEnum[key][searchLabelKey],
-				value: searchEnum[key][searchValueKey],
+				...v,
+				label: v[searchLabelKey],
+				value: v[searchValueKey],
 			};
 		});
 	}
@@ -39,7 +39,7 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 					searchType,
 					searchIndex,
 					searchLabel,
-					searchEnum = {},
+					searchEnum = [],
 					searchLabelKey = "label",
 					searchValueKey = "value",
 					formComponentProps,
@@ -50,7 +50,13 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 					let formComp = <></>;
 
 					if (searchType === "input") {
-						formComp = <Input {...formComponentProps} style={{ width: 200 }} />;
+						formComp = (
+							<Input
+								style={{ width: 200 }}
+								autoComplete="off"
+								{...formComponentProps}
+							/>
+						);
 					}
 					if (searchType === "select") {
 						const options = genOptions(
@@ -60,8 +66,8 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 						);
 						formComp = (
 							<Select
-								{...formComponentProps}
 								style={{ width: 200 }}
+								{...formComponentProps}
 								fieldNames={{
 									label: searchLabelKey,
 									value: searchValueKey,

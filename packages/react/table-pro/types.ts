@@ -21,7 +21,7 @@ export interface ProColumns<RecordType = AnyObject>
 	// 列处于搜索表单时，其具体的字段参数，默认是 title
 	searchLabel?: string;
 	// 下拉枚举列表，当 searchType 为 select、radio 时生效
-	searchEnum?: Record<string, any>;
+	searchEnum?: Array<Record<string, any>>;
 	// 下拉枚举列表 label key，当 searchType 为 select、radio 时生效, 默认使用 label
 	searchLabelKey?: string;
 	// 下拉枚举列表 value key，当 searchType 为 select、radio 时生效, 默认使用 value
@@ -66,3 +66,8 @@ export interface ChapandaTableProProps<DataSource, U>
 
 // target: 封装分页、搜索查询逻辑、
 // TODO: columns 搜索表单渲染 select 多选时，全选
+// TODO: 不在 columns 中的搜索表单
+// TODO: keydown 搜索
+// TODO: option sorter
+// TODO: 表单组件渲染顺序
+// TODO: 手动搜索

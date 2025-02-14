@@ -88,10 +88,10 @@ const columns: ProColumns<TableListItem>[] = [
     defaultSearchValue: 'all',
     searchLabelKey: 'text',
     searchValueKey: 'val',
-    searchEnum: {
-      all: { text: '全部', val: 'all' },
-      付小小: { text: '付小小', val: 'fxx'},
-    },
+    searchEnum: [
+      { text: '全部', val: 'all' },
+      { text: '付小小', val: 'fxx'},
+    ]
   },
   {
     title: '时间',
@@ -107,14 +107,14 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     dataIndex: 'status',
     searchType: 'select',
-    defaultSearchValue: 'Default',
-    searchEnum: {
-      all: { label: '全部', value: 'all' },
-      close: { label: '关闭', value: 'Default' },
-      running: { label: '运行中', value: 'Processing' },
-      online: { label: '已上线', value: 'Success' },
-      error: { label: '异常', value: 'Error' },
-    },
+    defaultSearchValue: '-1',
+    searchEnum: [
+       { value: "-1", key: "status-1", label: "全部" },
+      { value: 1, key: "status-2", label: "正常" },
+      { value: 0, key: "status-3", label: "冻结" },
+      { value: 2, key: "status-4", label: "锁定" },
+      { value: 3, key: "status-5", label: "限制登录" },
+  ],
   },
   {
     title: '备注',
@@ -128,13 +128,13 @@ const columns: ProColumns<TableListItem>[] = [
       placeholder: '全部',
       mode: "multiple"
     },
-    searchEnum: {
-      all: { label: '全部', value: 'all' },
-      close: { label: '关闭', value: 'Default' },
-      running: { label: '运行中', value: 'Processing' },
-      online: { label: '已上线', value: 'Success' },
-      error: { label: '异常', value: 'Error' },
-    },
+    searchEnum: [
+      { label: '全部', value: 'all' },
+      { label: '关闭', value: 'Default' },
+      { label: '运行中', value: 'Processing' },
+      { label: '已上线', value: 'Success' },
+      { label: '异常', value: 'Error' },
+    ]
   },
   {
     title: '操作',
