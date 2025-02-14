@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../../styles/table-pro/index.css";
 import { LayoutTitle } from "../../layout-title";
 import { FormFilter } from "./FormFilter.tsx";
 import type { ChapandaTableProProps } from "../types.ts";
 import { Divider, Table, type TableProps } from "antd";
 import type { FilterValue, SorterResult } from "antd/es/table/interface";
+import { ChapandaContext } from "../../provider";
 
 export function FormFilterTable<
 	dataSourceT extends Record<string, any>,
@@ -118,6 +119,60 @@ export function FormFilterTable<
 		setFiltersParams(filters);
 		setSorterParams(sorter);
 	};
+
+	// 对上下文暴露公共方法
+	const { expose, getFunc } = useContext(ChapandaContext);
+	function getFromCurrentParams(sParams: Record<string, any>) {
+		let resolveParams = {
+			...sParams,
+		};
+		if (getFunc) {
+			const formFn = getFunc("getFormFilterParams");
+			if (formFn) {
+				resolveParams = {
+					...resolveParams,
+					...formFn.run(),
+				};
+			}
+		}
+		return resolveParams;
+	}
+	const search = (
+		sParams: Record<string, any> = searchParams,
+		filters: Record<string, FilterValue | null> = filtersParams,
+		sorter:
+			| SorterResult<dataSourceT>
+			| SorterResult<dataSourceT>[] = sorterParams,
+	) => {
+		const resolveParams = getFromCurrentParams(sParams);
+		getDataSource(resolveParams, filters, sorter);
+	};
+
+	const getSearchParams = () => {
+		const resolveParams = getFromCurrentParams(searchParams);
+		return {
+			params: resolveParams,
+			filters: filtersParams,
+			sorter: sorterParams,
+		};
+	};
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies(search): <不是依赖>
+	// biome-ignore lint/correctness/useExhaustiveDependencies(getSearchParams): <不是依赖>
+	// biome-ignore lint/correctness/useExhaustiveDependencies(getFunc): <是依赖>
+	// biome-ignore lint/correctness/useExhaustiveDependencies(searchParams): <是依赖>
+	// biome-ignore lint/correctness/useExhaustiveDependencies(sorterParams): <是依赖>
+	// biome-ignore lint/correctness/useExhaustiveDependencies(filtersParams): <是依赖>
+	useEffect(() => {
+		if (expose) {
+			expose("search", search);
+			expose("getSearchParams", getSearchParams);
+			return () => {
+				expose("search", null);
+				expose("getSearchParams", null);
+			};
+		}
+	}, [expose, getFunc, searchParams]);
 
 	return (
 		<>

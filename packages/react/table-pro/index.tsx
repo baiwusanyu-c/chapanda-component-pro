@@ -11,7 +11,7 @@ function ChaPandaTablePro<dataSource extends Record<string, any>, U = any>(
 	return (
 		<div className="cbd-table-pro">
 			{formType === "form" ? (
-				<FormFilterTable {...props} />
+				<FormFilterTable<dataSource, U> {...props} />
 			) : (
 				<HeaderFilterTable {...props} />
 			)}

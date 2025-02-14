@@ -14,7 +14,7 @@ export type RequestData<T> = {
 
 export interface ProColumns<RecordType = AnyObject>
 	extends ColumnType<RecordType> {
-	// TODO: 列是否开启搜索表单，目前支持有限的表单
+	// 列是否开启搜索表单，目前支持有限的表单
 	searchType?: "input" | "select" | "date-picker" | "radio";
 	// 列处于搜索表单时，其具体的字段参数，默认是 dataIndex
 	searchIndex?: string;
@@ -62,11 +62,28 @@ export interface ChapandaTableProProps<DataSource, U>
 	params?: U;
 	// 搜索操作按钮区
 	toolBarRender?: () => React.ReactNode[];
-	// TODO: 列配置项
+	// 列配置项
 	columns: ProColumns<DataSource>[];
 }
 
+export interface ChapandaTableRef<dataSourceT extends Record<string, any>> {
+	search: (
+		sParams?: Record<string, any>,
+		filters?: Record<string, FilterValue | null>,
+		sorter?: SorterResult<dataSourceT> | SorterResult<dataSourceT>[],
+	) => void;
+	getSearchParams: () => {
+		params: Record<string, any>;
+		filters: Record<string, FilterValue | null>;
+		sorter: SorterResult<dataSourceT> | SorterResult<dataSourceT>[];
+	};
+}
+
+export type UncertainFunction<T = any> = (...arg: any[]) => T | undefined;
+export interface IChapandaContext {
+	expose: null | ((name: string, fn: UncertainFunction | null) => void);
+	getFunc: null | ((name: string) => { run: UncertainFunction });
+}
 // target: 封装分页、搜索查询逻辑、
 // TODO: columns 搜索表单渲染 select 多选时，全选
-// TODO: 不在 columns 中的搜索表单
 // TODO: 手动搜索

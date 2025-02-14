@@ -1,9 +1,12 @@
-import { ChaPandaTablePro as ProTable } from '@chapanda/component-pro'
+import {
+  ChapandaContext,
+  ChaPandaTablePro as ProTable,
+} from '@chapanda/component-pro'
 import type { ProColumns } from '@chapanda/component-pro'
-import { ConfigProvider } from "antd";
+import {Button, ConfigProvider} from "antd";
 import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
-import {useState} from "react";
-import dayjs, {Dayjs} from 'dayjs'
+import {useContext, useState} from "react";
+import dayjs from 'dayjs'
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -153,8 +156,20 @@ export default () => {
   const [params, setParams] = useState({
     ba: 'sxzz'
   });
+
+  const { getFunc } = useContext(ChapandaContext);
+  function testSearch(){
+    if(getFunc){
+      const searchFn = getFunc('search')
+      if(searchFn){
+        searchFn.run()
+      }
+    }
+  }
+
   return (
     <ConfigProvider theme={genChaPandaAntdTheme()} componentSize="middle">
+      <Button onClick={testSearch}> search </Button>
       <ProTable<TableListItem>
         params={params}
         columns={columns}

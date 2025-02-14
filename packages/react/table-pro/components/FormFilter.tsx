@@ -1,6 +1,7 @@
 import React, {
 	type CSSProperties,
 	type KeyboardEvent,
+	useContext,
 	useEffect,
 	useMemo,
 	useState,
@@ -8,6 +9,7 @@ import React, {
 import type { ChapandaTableProProps } from "../types.ts";
 import { Button, Form, Input, Select, Radio, DatePicker } from "antd";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import { ChapandaContext } from "../../provider";
 export interface FormFilterProps<DataSource, U> {
 	columns?: ChapandaTableProProps<DataSource, U>["columns"];
 	onSubmit?: (params: U) => void;
@@ -214,6 +216,19 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 			canRender(false);
 		}
 	}, [renderFormItem]);
+
+	// 对上下文暴露公共方法
+	const { expose } = useContext(ChapandaContext);
+	function getCurrentParams() {
+		return form.getFieldsValue();
+	}
+	// biome-ignore lint/correctness/useExhaustiveDependencies(getCurrentParams): <不是依赖>
+	useEffect(() => {
+		if (expose) {
+			expose("getFormFilterParams", getCurrentParams);
+			return () => expose("getFormFilterParams", null);
+		}
+	}, [expose]);
 	return (
 		<>
 			{renderFormItem?.length ? (
