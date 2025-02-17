@@ -1,6 +1,7 @@
 import React, {
 	type CSSProperties,
 	type KeyboardEvent,
+	useCallback,
 	useContext,
 	useEffect,
 	useMemo,
@@ -37,15 +38,50 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 		});
 	}
 
+	const [columnsInner, setColumnsInner] = useState(columns);
+	useEffect(() => {
+		setColumnsInner(columns);
+	}, [columns]);
+
+	const onSelect = useCallback(
+		(v: string[], index: number, field: string, valueKey: string) => {
+			if (columnsInner) {
+				const resolveColumns = columnsInner;
+				const it = resolveColumns[index];
+				if (it.searchType === "select" && it.formComponentProps) {
+					if (it.formComponentProps.mode === "multiple" && it.searchEnum) {
+						if (v.includes("all")) {
+							it.searchEnum = it.searchEnum.map((v) => {
+								if (v[valueKey] && v[valueKey] !== "all") {
+									v.disabled = true;
+								}
+								return v;
+							});
+							form.setFieldValue(field, ["all"]);
+						} else {
+							it.searchEnum = it.searchEnum.map((v) => {
+								v.disabled = false;
+								return v;
+							});
+						}
+					}
+				}
+				resolveColumns[index] = it;
+				setColumnsInner(() => [...resolveColumns]);
+			}
+		},
+		[columnsInner, form],
+	);
+
 	// biome-ignore lint/correctness/useExhaustiveDependencies(genOptions): <不是依赖>
 	const renderFormItem = useMemo(() => {
-		return columns
+		return columnsInner
 			?.sort((a, b) => {
 				const sortKeyA = a.searchRenderIndex || 0;
 				const sortKeyB = b.searchRenderIndex || 0;
 				return sortKeyA - sortKeyB;
 			})
-			.map((column) => {
+			.map((column, index) => {
 				const {
 					title,
 					dataIndex,
@@ -78,6 +114,7 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 							searchLabelKey,
 							searchValueKey,
 						);
+
 						formComp = (
 							<Select
 								style={{ width: 200 }}
@@ -86,6 +123,9 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 									value: searchValueKey,
 									...(formComponentProps || {}).fieldNames,
 								}}
+								onChange={(v) =>
+									onSelect(v, index, resolveName, searchValueKey)
+								}
 								onKeyDown={handleKeyEnter}
 								options={options}
 								{...formComponentProps}
@@ -118,7 +158,7 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 				}
 			})
 			.filter((r) => !!r);
-	}, [columns]);
+	}, [columnsInner, onSelect]);
 
 	// 展开、收起
 	const [isHidden, setHidden] = useState(true);

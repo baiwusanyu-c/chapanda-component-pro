@@ -125,7 +125,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'memo',
     ellipsis: true,
     searchType: 'select',
-    defaultSearchValue: ['Default'],
+    defaultSearchValue: ['all'],
     formComponentProps: {
       allowClear: true,
       maxTagCount: 1,

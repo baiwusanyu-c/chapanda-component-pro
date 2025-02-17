@@ -102,4 +102,3 @@ export interface IChapandaContext {
 		  ) => IChapandaCompProCtx[IChapandaCompProCtxKeys]);
 }
 // target: 封装分页、搜索查询逻辑、
-// TODO: columns 搜索表单渲染 select 多选时，全选
