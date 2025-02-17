@@ -66,24 +66,40 @@ export interface ChapandaTableProProps<DataSource, U>
 	columns: ProColumns<DataSource>[];
 }
 
-export interface ChapandaTableRef<dataSourceT extends Record<string, any>> {
-	search: (
+export interface ChapandaTableFns {
+	search?: <dataSourceT extends Record<string, any>>(
 		sParams?: Record<string, any>,
 		filters?: Record<string, FilterValue | null>,
 		sorter?: SorterResult<dataSourceT> | SorterResult<dataSourceT>[],
 	) => void;
-	getSearchParams: () => {
+	getSearchParams?: <dataSourceT extends Record<string, any>>() => {
 		params: Record<string, any>;
 		filters: Record<string, FilterValue | null>;
 		sorter: SorterResult<dataSourceT> | SorterResult<dataSourceT>[];
 	};
+	getFormFilterParams?: () => any;
+	[key: string]: any;
+}
+
+export type IChapandaCompProCtxKeys = "tablePro";
+export interface IChapandaCompProCtx {
+	tablePro?: ChapandaTableFns;
 }
 
 export type UncertainFunction<T = any> = (...arg: any[]) => T | undefined;
 export interface IChapandaContext {
-	expose: null | ((name: string, fn: UncertainFunction | null) => void);
-	getFunc: null | ((name: string) => { run: UncertainFunction });
+	expose:
+		| null
+		| ((
+				scope: IChapandaCompProCtxKeys,
+				name: keyof ChapandaTableFns,
+				fn: UncertainFunction | null,
+		  ) => void);
+	getFunc:
+		| null
+		| ((
+				scope: IChapandaCompProCtxKeys,
+		  ) => IChapandaCompProCtx[IChapandaCompProCtxKeys]);
 }
 // target: 封装分页、搜索查询逻辑、
 // TODO: columns 搜索表单渲染 select 多选时，全选
-// TODO: 手动搜索

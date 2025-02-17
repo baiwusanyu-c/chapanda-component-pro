@@ -127,11 +127,11 @@ export function FormFilterTable<
 			...sParams,
 		};
 		if (getFunc) {
-			const formFn = getFunc("getFormFilterParams");
-			if (formFn) {
+			const formFn = getFunc("tablePro");
+			if (formFn && formFn.getFormFilterParams) {
 				resolveParams = {
 					...resolveParams,
-					...formFn.run(),
+					...formFn.getFormFilterParams(),
 				};
 			}
 		}
@@ -165,11 +165,11 @@ export function FormFilterTable<
 	// biome-ignore lint/correctness/useExhaustiveDependencies(filtersParams): <是依赖>
 	useEffect(() => {
 		if (expose) {
-			expose("search", search);
-			expose("getSearchParams", getSearchParams);
+			expose("tablePro", "search", search);
+			expose("tablePro", "getSearchParams", getSearchParams);
 			return () => {
-				expose("search", null);
-				expose("getSearchParams", null);
+				expose("tablePro", "search", null);
+				expose("tablePro", "getSearchParams", null);
 			};
 		}
 	}, [expose, getFunc, searchParams]);

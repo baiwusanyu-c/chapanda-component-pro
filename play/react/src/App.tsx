@@ -160,9 +160,9 @@ export default () => {
   const { getFunc } = useContext(ChapandaContext);
   function testSearch(){
     if(getFunc){
-      const searchFn = getFunc('search')
-      if(searchFn){
-        searchFn.run()
+      const searchFn = getFunc('tablePro')
+      if(searchFn && searchFn.search){
+        searchFn.search()
       }
     }
   }

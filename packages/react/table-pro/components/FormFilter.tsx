@@ -225,8 +225,8 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 	// biome-ignore lint/correctness/useExhaustiveDependencies(getCurrentParams): <不是依赖>
 	useEffect(() => {
 		if (expose) {
-			expose("getFormFilterParams", getCurrentParams);
-			return () => expose("getFormFilterParams", null);
+			expose("tablePro", "getFormFilterParams", getCurrentParams);
+			return () => expose("tablePro", "getFormFilterParams", null);
 		}
 	}, [expose]);
 	return (
