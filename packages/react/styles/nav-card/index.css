@@ -1,0 +1,59 @@
+.cbd-nav-card{
+    position: relative;
+}
+.cbd-nav-card--a {
+    cursor: pointer;
+}
+.cbd-nav-card.is-disabled {
+    cursor: not-allowed !important;
+    opacity: .8;
+    color: var(--cbd-gray-39) !important;
+}
+.cbd-nav-card.is-disabled svg{
+    opacity: .5;
+}
+
+.cbd-nav-card .core-card--not-title,
+.cbd-nav-card .core-card{
+    height: 100%;
+}
+
+
+.cbd-nav-card .cbd-nav-card--title{
+    margin: 8px 0;
+    color: var(--cbd-gray-7);
+    font-weight: 500;
+    font-size: 18px;
+    word-break: break-all;
+    font-family: PingFang-SC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.cbd-nav-card .cbd-nav-card--description{
+    color: var(--cbd-gray-5);
+    font-weight: 400;
+    font-size: 14px;
+    word-break: break-all;
+    font-family: PingFang-SC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.cbd-nav-card .core-card--not-title.ant-card .ant-card-head,
+.cbd-nav-card .core-card.ant-card .ant-card-head {
+    border-width: 0;
+}
+
+.cbd-nav-card .core-card.ant-card .ant-card-head {
+    padding-top: 10px;
+}
+
+.cbd-nav-card .core-card--not-title.ant-card .ant-card-body,
+.cbd-nav-card .core-card.ant-card .ant-card-body {
+    padding-top: 0;
+}
+
+.cbd-nav-card .cbd-nav-card--extra{
+    position: absolute;
+    color: var(--cbd-green-2);
+    background-color: var(--cbd-green-1);
+    right: 10px;
+    top: 10px;
+}
