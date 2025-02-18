@@ -29,6 +29,7 @@ const copyPackageJsonFiles = async(
           },
           "./react/styles/table-pro": "./react/styles/table-pro/index.css",
           "./react/styles/layout-title": "./react/styles/layout-title/index.css",
+          "./react/styles/nav-card": "./react/styles/nav-card/index.css",
           "./react/styles/*": "./react/styles/*"
         }
       } else {
