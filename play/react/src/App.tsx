@@ -342,7 +342,9 @@ import React from 'react'
 export default () => {
   return (
     <ConfigProvider theme={genChaPandaAntdTheme()} componentSize="middle">
-      <SkeletonPro type='list'/>
+      <SkeletonPro type='list' />
+      <hr/>
+      <SkeletonPro type='description' />
     </ConfigProvider>
 
   );

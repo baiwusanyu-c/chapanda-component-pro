@@ -1,15 +1,14 @@
 import type { SkeletonProProps } from "../types.ts";
-import React, { useMemo } from "react";
+import React from "react";
 import { Skeleton } from "antd";
-
+import { useRenderList } from "@chapanda/component-pro-utils";
+import "../../styles/skeleton-pro/index.css";
 export function SkeletonList(props: SkeletonProProps) {
 	const { active = true, renderNum = 6, skeletonProps } = props;
-	const list = useMemo(() => {
-		return Array.from({ length: renderNum });
-	}, [renderNum]);
+	const { list } = useRenderList({active, renderNum})
 	return (
 		<>
-			{list.map((index) => {
+			{list.map((_,index: number) => {
 				return (
 					<div
 						className="cbd-skeleton-pro-list"
