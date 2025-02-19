@@ -211,7 +211,7 @@ export default () => {
 };
 */
 
-import {
+/*import {
   NavCard,
 } from '@chapanda/component-pro'
 import { ConfigProvider, Col, Row} from "antd";
@@ -327,6 +327,22 @@ export default () => {
         </Col>
       </Row>
 
+    </ConfigProvider>
+
+  );
+};*/
+
+import {
+  SkeletonPro,
+} from '@chapanda/component-pro'
+import { ConfigProvider } from "antd";
+import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
+import React from 'react'
+
+export default () => {
+  return (
+    <ConfigProvider theme={genChaPandaAntdTheme()} componentSize="middle">
+      <SkeletonPro type='list'/>
     </ConfigProvider>
 
   );

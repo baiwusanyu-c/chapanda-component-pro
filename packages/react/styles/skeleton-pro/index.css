@@ -1,3 +1,19 @@
-.cbd-skeleton-pro {
+.cbd-skeleton-pro .cbd-skeleton-pro-list{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
+.cbd-skeleton-pro .cbd-skeleton-pro-list .ant-skeleton.ant-skeleton-element .cbd-skeleton-pro-item{
+    width: 100%;
+}
+
+
+.cbd-skeleton-pro-list .cbd-skeleton-pro-item:nth-child(2) {
+    margin: 0 10px;
+}
+
+.cbd-skeleton-pro > .cbd-skeleton-pro-list:not(:first-child):not(:last-child) {
+    margin: 18px 0;
 }
