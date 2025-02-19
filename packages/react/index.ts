@@ -1,6 +1,9 @@
 export * from "./table-pro";
 export * from "./table-pro/types.ts";
 
+export * from "./skeleton-pro";
+export * from "./skeleton-pro/types.ts";
+
 export * from "./layout-title";
 export * from "./layout-title/types.ts";
 
