@@ -4,7 +4,6 @@ import { SkeletonDetail } from "./components/SkeletonDetail.tsx";
 import { SkeletonDescription } from "./components/SkeletonDescription.tsx";
 import { SkeletonList } from "./components/SkeletonList.tsx";
 import { SkeletonMatrix } from "./components/SkeletonMatrix.tsx";
-import { SkeletonQuery } from "./components/SkeletonQuery.tsx";
 import { SkeletonTable } from "./components/SkeletonTable.tsx";
 import "../styles/skeleton-pro/index.css";
 export function SkeletonPro(props: SkeletonProProps) {
@@ -23,9 +22,6 @@ export function SkeletonPro(props: SkeletonProProps) {
 		}
 		if (props.type === "table") {
 			return <SkeletonTable {...props} />;
-		}
-		if (props.type === "query") {
-			return <SkeletonQuery {...props} />;
 		}
 	}, [props]);
 	return <div className="cbd-skeleton-pro">{renderSkeleton}</div>;

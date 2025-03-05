@@ -342,9 +342,25 @@ import React from 'react'
 export default () => {
   return (
     <ConfigProvider theme={genChaPandaAntdTheme()} componentSize="middle">
-      <SkeletonPro type='list' />
+      <SkeletonPro type='list' active={false} renderNum={4}/>
+      <hr/>
+      <SkeletonPro type='list'/>
+      <hr/>
+      <SkeletonPro type='description' active={false} renderNum={4}/>
       <hr/>
       <SkeletonPro type='description' />
+      <hr/>
+      <SkeletonPro type='matrix'
+                   active={false}
+                   renderNum={8}
+                   rowProps={{ gutter: [20, 20]}}
+                   colProps={{ span: 6 }}
+      />
+      <hr/>
+      <SkeletonPro type='matrix' renderNum={8}
+                   rowProps={{ gutter: [20, 20]}}
+                   colProps={{ span: 6 }}/>
+      <hr/>
     </ConfigProvider>
 
   );

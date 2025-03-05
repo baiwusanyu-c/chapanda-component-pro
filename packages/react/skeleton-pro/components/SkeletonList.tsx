@@ -5,10 +5,10 @@ import { useRenderList } from "@chapanda/component-pro-utils";
 import "../../styles/skeleton-pro/index.css";
 export function SkeletonList(props: SkeletonProProps) {
 	const { active = true, renderNum = 6, skeletonProps } = props;
-	const { list } = useRenderList({active, renderNum})
+	const { list } = useRenderList({ renderNum });
 	return (
 		<>
-			{list.map((_,index: number) => {
+			{list.map((_, index: number) => {
 				return (
 					<div
 						className="cbd-skeleton-pro-list"
