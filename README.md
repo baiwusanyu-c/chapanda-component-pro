@@ -3,6 +3,6 @@
 # TablePro - FormFilterTable
 # LayoutTitle
 # NavCard
-# TODO: SkeletonPro
-# TODO: QueryFilter
+# SkeletonPro
+# QueryFilter
 # TODO: TablePro - HeaderFilterTable
