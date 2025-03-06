@@ -1,0 +1,187 @@
+/************ skeleton-pro-list *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-list{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-list .ant-skeleton.ant-skeleton-element .cbd-skeleton-pro-item{
+    width: 100%;
+}
+
+
+.cbd-skeleton-pro-list .cbd-skeleton-pro-item:nth-child(2) {
+    margin: 0 10px;
+}
+
+.cbd-skeleton-pro > .cbd-skeleton-pro-list:not(:first-child):not(:last-child) {
+    margin: 18px 0;
+}
+
+/************ skeleton-pro-description *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description-body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description .ant-skeleton.ant-skeleton-element .cbd-skeleton-pro-decr-title{
+    width: 20%;
+    height: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description .ant-skeleton.ant-skeleton-element .cbd-skeleton-pro-decr-sub-title{
+    width: 80%;
+    height: 20px;
+    margin-top: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description .ant-skeleton.ant-skeleton-element .cbd-skeleton-pro-decr-extra{
+    width: 60%;
+    height: 32px;
+    float: right;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-description .ant-skeleton.cbd-skeleton-pro-decr-extra{
+    width: 100%;
+    height: 32px;
+}
+
+
+/************ skeleton-pro-matrix *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card.ant-card .ant-card-body {
+    padding: 18px 24px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card.ant-card .ant-card-head {
+    border-width: 0;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card .cbd-skeleton-pro-matrix-title {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card .cbd-skeleton-pro-matrix-content {
+   display: flex;
+   flex-direction: column;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card .cbd-skeleton-pro-matrix-sub-title {
+    height: 28px;
+    width: 40%;
+    margin-bottom: 10px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-matrix-card .cbd-skeleton-pro-matrix-description {
+    height: 20px;
+    width: 80%;
+}
+
+
+/************ skeleton-pro-query *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-query{
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-query .cbd-skeleton-pro-query-operate {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-query .cbd-skeleton-pro-query-item {
+    height: 32px;
+    width: 80px;
+    margin: 0 10px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-query .cbd-skeleton-pro-query-title{
+    width: 20%;
+    height: 32px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-query .cbd-skeleton-pro-query-form{
+    display: flex;
+    justify-content: flex-start;
+    margin: 16px 0;
+}
+
+
+
+/************ skeleton-pro-table *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table{
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-operate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-item {
+    height: 32px;
+    width: 80px;
+    margin: 0 10px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-title{
+    width: 80px;
+    height: 32px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-page{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-pager{
+    height: 32px;
+    width: 30%;
+}
+
+/************ skeleton-pro-detail *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-detail{
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+}
+.cbd-skeleton-pro .cbd-skeleton-pro-detail-item{
+   box-sizing: border-box;
+   flex: 1;
+   padding-right: 60px;
+}
