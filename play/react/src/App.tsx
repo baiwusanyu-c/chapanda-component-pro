@@ -368,6 +368,9 @@ export default () => {
 
       <SkeletonPro type='table' renderNum={6}/>
       <hr/>
+
+      <SkeletonPro type='detail' renderNum={6}/>
+      <hr/>
     </ConfigProvider>
 
   );

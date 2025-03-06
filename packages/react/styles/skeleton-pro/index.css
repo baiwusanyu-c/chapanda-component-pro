@@ -171,3 +171,17 @@
     height: 32px;
     width: 30%;
 }
+
+/************ skeleton-pro-detail *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-detail{
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+}
+.cbd-skeleton-pro .cbd-skeleton-pro-detail-item{
+   box-sizing: border-box;
+   flex: 1;
+   padding-right: 60px;
+}
