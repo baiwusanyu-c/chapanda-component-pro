@@ -361,6 +361,10 @@ export default () => {
                    rowProps={{ gutter: [20, 20]}}
                    colProps={{ span: 6 }}/>
       <hr/>
+
+
+      <SkeletonPro type='query' renderNum={6}/>
+      <hr/>
     </ConfigProvider>
 
   );
