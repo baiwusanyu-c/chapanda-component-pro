@@ -365,6 +365,9 @@ export default () => {
 
       <SkeletonPro type='query' renderNum={6}/>
       <hr/>
+
+      <SkeletonPro type='table' renderNum={6}/>
+      <hr/>
     </ConfigProvider>
 
   );

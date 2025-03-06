@@ -66,6 +66,8 @@
 }
 
 
+/************ skeleton-pro-matrix *************/
+
 .cbd-skeleton-pro .cbd-skeleton-pro-matrix-card.ant-card .ant-card-body {
     padding: 18px 24px;
 }
@@ -98,7 +100,7 @@
 }
 
 
-
+/************ skeleton-pro-query *************/
 
 .cbd-skeleton-pro .cbd-skeleton-pro-query{
     box-sizing: border-box;
@@ -106,7 +108,7 @@
     width: 100%;
 }
 
-.cbd-skeleton-pro-query-operate {
+.cbd-skeleton-pro .cbd-skeleton-pro-query .cbd-skeleton-pro-query-operate {
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -129,3 +131,43 @@
     margin: 16px 0;
 }
 
+
+
+/************ skeleton-pro-table *************/
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table{
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-operate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-item {
+    height: 32px;
+    width: 80px;
+    margin: 0 10px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-title{
+    width: 80px;
+    height: 32px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-page{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cbd-skeleton-pro .cbd-skeleton-pro-table .cbd-skeleton-pro-table-pager{
+    height: 32px;
+    width: 30%;
+}
