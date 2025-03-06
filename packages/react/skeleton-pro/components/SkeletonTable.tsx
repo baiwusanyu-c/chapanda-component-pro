@@ -11,6 +11,7 @@ export function SkeletonTable(props: SkeletonProProps) {
 		renderTableRow = 10,
 		renderTableCol = 4,
 		skeletonProps,
+		renderTableQuery = true,
 	} = props;
 	const { list: listRow } = useRenderList({ renderNum: renderTableRow });
 	const { list: listCol } = useRenderList({ renderNum: renderTableCol });
@@ -36,13 +37,20 @@ export function SkeletonTable(props: SkeletonProProps) {
 	});
 	return (
 		<>
-			<SkeletonQuery
-				type="query"
-				renderNum={renderNum}
-				active={active}
-				skeletonProps={skeletonProps}
-			></SkeletonQuery>
-			<Divider />
+			{renderTableQuery ? (
+				<>
+					<SkeletonQuery
+						type="query"
+						renderNum={renderNum}
+						active={active}
+						skeletonProps={skeletonProps}
+					/>
+					<Divider />
+				</>
+			) : (
+				<></>
+			)}
+
 			<div className="cbd-skeleton-pro-table">
 				<div className="cbd-skeleton-pro-table-operate">
 					<Skeleton.Button

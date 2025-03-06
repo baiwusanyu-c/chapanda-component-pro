@@ -366,10 +366,10 @@ export default () => {
       <SkeletonPro type='query' renderNum={6}/>
       <hr/>
 
-      <SkeletonPro type='table' renderNum={6}/>
+      <SkeletonPro type='table' renderNum={6} renderTableQuery={false}/>
       <hr/>
 
-      <SkeletonPro type='detail' renderNum={6}/>
+      <SkeletonPro type='detail' renderNum={6} renderDetailTable={false}/>
       <hr/>
     </ConfigProvider>
 

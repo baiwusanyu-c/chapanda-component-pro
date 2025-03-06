@@ -4,7 +4,14 @@ import { SkeletonTable } from "./SkeletonTable.tsx";
 import "../../styles/skeleton-pro/index.css";
 import { Divider, Skeleton } from "antd";
 export function SkeletonDetail(props: SkeletonProProps) {
-	const { active = true, skeletonProps } = props;
+	const {
+		active = true,
+		skeletonProps,
+		renderTableQuery = true,
+		renderTableRow = 10,
+		renderTableCol = 4,
+		renderDetailTable = true,
+	} = props;
 
 	return (
 		<>
@@ -30,12 +37,21 @@ export function SkeletonDetail(props: SkeletonProProps) {
 					/>
 				</div>
 			</div>
-			<Divider />
-			<SkeletonTable
-				type="table"
-				skeletonProps={skeletonProps}
-				active={active}
-			/>
+			{renderDetailTable ? (
+				<>
+					<Divider />
+					<SkeletonTable
+						type="table"
+						renderTableQuery={renderTableQuery}
+						renderTableRow={renderTableRow}
+						renderTableCol={renderTableCol}
+						skeletonProps={skeletonProps}
+						active={active}
+					/>
+				</>
+			) : (
+				<></>
+			)}
 		</>
 	);
 }
