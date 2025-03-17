@@ -1,0 +1,27 @@
+[
+  {
+    "text": "导航",
+    "link": "/guide/",
+    "activeMatch": "/guide/"
+  },
+  {
+    "text": "Guide-demo",
+    "link": "/guide-demo/",
+    "activeMatch": "/guide-demo/"
+  },
+  {
+    "text": "组件",
+    "items": [
+      {
+        "text": "table-pro",
+        "link": "/components/table-pro",
+        "activeMatch": "/components/table-pro"
+      },
+      {
+        "text": "skeleton-pro",
+        "link": "/components/skeleton-pro",
+        "activeMatch": "/components/skeleton-pro"
+      }
+    ]
+  }
+]

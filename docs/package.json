@@ -1,0 +1,21 @@
+{
+  "name": "@chapanda/component-pro-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rspress build",
+    "dev": "rspress dev",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "rspress": "^1.40.2",
+    "@chapanda/component-pro": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "@types/react": "^18.3.16",
+    "@types/react-dom": "^18.3.5"
+  }
+}
