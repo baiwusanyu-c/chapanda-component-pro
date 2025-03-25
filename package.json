@@ -33,7 +33,7 @@
     "build:docs": "pnpm run --filter@chapanda/component-pro-docs build",
     "preview:docs": "pnpm run --filter @chapanda/component-pro-docs preview",
     "lint:ts-fix": "biome lint --write --max-diagnostics=100 ./packages",
-    "format": "biome format --write ./packages",
+    "format": "biome format --write ./packages ./docs",
     "release": "bumpp package.json packages/*/package.json  --commit --push --tag",
     "publish:script": "pnpm run --filter @chapanda/component-pro-scripts publish:npm",
     "clean": "pnpm run --filter @chapanda/component-pro-scripts clean",

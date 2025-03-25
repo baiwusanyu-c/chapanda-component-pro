@@ -1,11 +1,64 @@
-import {
-    SkeletonPro,
-} from '@chapanda/component-pro';
-
 # SkeletonPro
-`chapanda component pro` 是基于 `antd` 的业务组件二次封装骨架屏
+
+`SkeletonPro` 是`chapanda component pro` 基于 `antd` 的业务组件二次封装业务组件。
 
 ## 样例
+
 ### 基础使用
 
-<SkeletonPro type='list' active={false} renderNum={4}/>
+将 `type` 属性设置为 `list`, 可以渲染简单的骨架列表，`renderNum` 可以设置渲染行数。
+
+<code src='../../demo/skeleton-pro/basic.tsx'/>
+
+### 开启动画
+
+将 `active` 属性设置为 `true`, 开启动画。
+
+<code src='../../demo/skeleton-pro/active.tsx'/>
+
+### 描述列表
+
+将 `type` 属性设置为 `description`, 可以渲染为描述列表骨架屏。
+
+<code src='../../demo/skeleton-pro/description.tsx'/>
+
+### 卡片矩阵
+
+将 `type` 属性设置为 `matrix`, 可以渲染为描述列表骨架屏。
+
+<code src='../../demo/skeleton-pro/matrix.tsx'/>
+
+### 查询骨架
+
+将 `type` 属性设置为 `query`, 可以渲染为查询骨架屏。
+
+<code src='../../demo/skeleton-pro/query.tsx'/>
+
+### 表格查询
+
+将 `type` 属性设置为 `table`, 可以渲染为表格骨架屏。
+
+<code src='../../demo/skeleton-pro/table.tsx'/>
+
+### 详情页骨架
+
+将 `type` 属性设置为 `detail`, 可以渲染为详情页骨架屏。
+
+<code src='../../demo/skeleton-pro/detail.tsx'/>
+
+## API
+
+### Props
+
+| Name           | Type                                             | Default    | Description                                                                                   |
+| -------------- | ------------------------------------------------ | ---------- | --------------------------------------------------------------------------------------------- |
+| type           | `"list" \| "description" \| "matrix" \| "detail" \| "table" \| "query"`| `-`        | 标记骨架屏渲染类型 |
+| active         | `boolean`                                         | `true`        | 是否显示动态          |
+| renderNum      | `number`                                         | `-`        |  渲染数量， 仅 `type='list'`或 `type='description'`或 `type='matrix'`生效  |
+| rowProps       | `RowProps`                                         | `-`        | `row` 组件 `props`， 仅 `type='matrix'` 生效 |
+| colProps       | `ColProps`                          | `fixed`    | `col` 组件 `props`， 仅 `type='matrix'` 生效                                                                    |
+| renderTableRow   | `number` | `-` | 渲染 `table` 的行数、仅 `type='detail'`或 `type='table'`生效                                                     |
+| renderTableCol    | `number`                                         | `-`       | 渲染 `table` 的列数、仅 `type='detail'`或 `type='table'`生效                                                                 |
+| renderTableQuery  | `boolean`                         | `true`       | 渲染 `table` 的 `query` 区域、仅 `type='detail'`或 `type='table'`生效                                                                     |
+| renderDetailTable   | `boolean`                         | `true`       | 渲染 `detail` 的 `table` 区域, 仅 `type='detail'` 生效                                                                         |
+| skeletonProps        | `SkeletonProps`                         | `-`       | 作用在每个原子 `Skeleton` 组件上的 `props`                                                                         |
