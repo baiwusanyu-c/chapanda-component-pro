@@ -1,0 +1,43 @@
+# NavCard
+
+`NavCard` 是`chapanda component pro` 基于 `antd` 的业务组件二次封装业务组件。
+
+## 样例
+
+### 基础使用
+
+<code src='../../demo/nav-card/basic.tsx'/>
+
+### 渲染为A标签
+
+将 `isATag` 属性设置为 `true`, 设置为`<a>` 标签。
+
+<code src='../../demo/nav-card/atag.tsx'/>
+
+### 禁用
+
+将 `disabled` 属性设置为 `true`, 设置为禁用。
+
+<code src='../../demo/nav-card/disabled.tsx'/>
+
+
+### 自定义渲染
+
+将 `titleIcon` 属性、`title` 属性、`extra` 属性、`description` 属性可以传入 `React` 节点自定义渲染。
+
+<code src='../../demo/nav-card/custom.tsx'/>
+
+## API
+
+### Props
+
+| Name           | Type                                             | Default    | Description                                                                                   |
+| -------------- | ---------------------------- | ---------- | ----------------- |
+| isATag         | `boolean`| `-`               | 是否渲染成 `a` 标签 |
+| attrs          | `Record<string, any>`        | `-`        | 继承到渲染元素上的属性    |
+| titleIcon      | `React.ReactNode`            | `-`        | 标题图标  |
+| title          | `string \| React.ReactNode`  | `-`        | 标题  |
+| extra          | `string \| React.ReactNode`  | `-`        | 标题的附加内容 |
+| showExtra      | `boolean`                    | `true`    | 是否显示标题附加内容                                                                    |
+| disabled       | `boolean`                    | `false` | 是否禁用 |
+| description    | `string \| React.ReactNode`  | `-`       | 描述内容              |
