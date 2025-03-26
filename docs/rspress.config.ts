@@ -3,6 +3,7 @@ import { defineConfig } from 'rspress/config';
 // import { pluginPlayground } from '@rspress/plugin-playground';
 import { pluginPreview } from '@rspress/plugin-preview';
 export default defineConfig({
+  base: '/chapanda-component-pro/',
   root: path.join(__dirname, 'docs'),
   title: 'chapanda component pro',
   icon: '/logo.png',
@@ -31,4 +32,9 @@ export default defineConfig({
       }
     )
   ],
+  builderConfig: {
+    output: {
+      assetPrefix: 'https://baiwusanyu-c.github.io/chapanda-component-pro',
+    },
+  },
 });
