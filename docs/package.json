@@ -14,7 +14,16 @@
     "react-dom": "^18.3.1",
     "antd": "^5.22.4",
     "@ant-design/colors": "^7.1.0",
-    "@ant-design/icons": "^5.6.1"
+    "@ant-design/icons": "^5.6.1",
+    "dayjs": "^1.11.13",
+    "@chapanda/style-preset": "^1.4.9",
+    "@chapanda/style-preset-antd": "^1.4.9",
+    "@chapanda/style-preset-base": "^1.4.9",
+    "@chapanda/style-preset-ep": "^1.4.9",
+    "@chapanda/style-preset-tailwind": "^1.4.9",
+    "@chapanda/style-preset-unocss": "^1.4.9",
+    "@chapanda/style-preset-utils": "^1.4.9",
+    "@chapanda/style-preset-vant": "^1.4.9"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",

@@ -101,4 +101,3 @@ export interface IChapandaContext {
 				scope: IChapandaCompProCtxKeys,
 		  ) => IChapandaCompProCtx[IChapandaCompProCtxKeys]);
 }
-// target: 封装分页、搜索查询逻辑、

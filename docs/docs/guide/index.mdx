@@ -6,7 +6,7 @@ import { PackageManagerTabs } from '@theme';
 
 ## 安装
 
-<PackageManagerTabs command="@chapanda/component-pro " />
+<PackageManagerTabs command="@chapanda/component-pro @chapanda/style-preset" />
 
 ## 开始使用
 
@@ -17,6 +17,11 @@ import "@chapanda/component-pro/react/styles/table-pro/index.css";
 import "@chapanda/component-pro/react/styles/layout-title/index.css";
 import "@chapanda/component-pro/react/styles/nav-card/index.css";
 import "@chapanda/component-pro/react/styles/skeleton-pro/index.css";
+import './style.scss'
+```
+
+```scss
+@use '@chapanda/style-preset/theme';
 ```
 
 在应用的根组件文件 `app.tsx` 引入 `ChapandaProvider` 组件，它将为 `component pro` 的其他组件提供必要的上下文事件，以确保功能的正常执行
@@ -28,10 +33,11 @@ import { ConfigProvider } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import { ChapandaProvider } from "@chapanda/component-pro";
 import RouterView from "./router";
-
+import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
 export default (() => {
 	return (
 		<ConfigProvider
+                theme={genChaPandaAntdTheme()}
 				componentSize="middle"
 				locale={zhCN}>
 				<ChapandaProvider>{RouterView()}</ChapandaProvider>

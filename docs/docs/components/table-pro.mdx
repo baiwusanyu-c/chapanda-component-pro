@@ -1,8 +1,135 @@
-import { PackageManagerTabs } from '@theme';
-
 # ChaPandaTablePro
 
-`chapanda component pro` 是基于 `antd` 的业务组件二次封装表格
+`ChaPandaTablePro` 是`chapanda component pro` 基于 `antd` 的业务组件二次封装业务组件。
 
 ## 样例
+
 ### 基础使用
+
+> 打开开发者工具，可查看请求触发的参数打印
+
+<code src='../../demo/table-pro/basic.tsx'/>
+
+### 操作选区与标题悬浮
+
+通过 `toolBarRender` 属性可以添加操作按钮，`tableTitle` 与 `searchTitle` 可以开启附加说明悬浮提示。
+
+<code src='../../demo/table-pro/tooltip.tsx'/>
+
+### 手动触发请求
+
+通过使用上下文对象，可以直接调用 `search` 方法手动触发请求。
+
+<code src='../../demo/table-pro/search.tsx'/>
+
+## API
+
+### Props
+
+| Name           | Type                                             | Default    | Description                                                                                   |
+| -------------- | ---------------------------- | ---------- | ----------------- |
+| formType         | `"form" \| "table-head"`| `form`               | 标记搜索表单是独立的表单区，还是在表格头部(目前仅支持 `form`) |
+| searchTitle      | `{ title?: string; tooltip?: string; }`        | `-`        | 查询表单区的 `title`，仅 `formType` 为 `form` 时有效    |
+| tableTitle      | `{ title?: string; tooltip?: string; }`             | `-`        | 表格 `title`  |
+| request          | `TableProRequest`  | `-`        | 获取 `dataSource` 的方法, `sort` 和 `filter` 来自 `antd` `table` 的 `change` 事件，只有对应排序和搜索事件发生时才会传递  |
+| params          | `unknown`  | `-`        | request 的参数，修改之后会触发更新 |
+| toolBarRender    | `() => React.ReactNode[]`                    | `-`    | 搜索操作按钮区渲染函数                                                                    |
+| columns       | `ProColumns[]`                    | `-` | 列配置项 |
+
+```typescript
+import type { FilterValue, SorterResult } from "antd/es/table/interface";
+
+export type RequestData<T> = {
+	data: T[] | undefined;
+	success?: boolean;
+	total?: number;
+} & Record<string, any>;
+
+ declare type TableProRequest<U, DataSource> =  (
+		params: U & {
+			pageSize?: number;
+			current?: number;
+			[key: string]: any;
+		},
+		sort?: SorterResult<DataSource> | SorterResult<DataSource>[],
+		filter?: Record<string, FilterValue | null>,
+	) => Promise<Partial<RequestData<DataSource>>>
+
+```
+
+### ProColumns
+
+`ChaPandaTablePro` 基于 `antd` 的 `table` 组件的 `Column` 进行了扩展，以下仅列出扩展的属性。
+
+| Name           | Type                                             | Default    | Description                                                                                   |
+| -------------- | ---------------------------- | ---------- | ----------------- |
+| searchType         | `"input" \| "select" \| "date-picker" \| "radio"`| `-`               | 列是否开启搜索表单，目前支持有限的表单 |
+| searchIndex          | `string`        | `-`        | `列`处于搜索表单时，其具体的字段参数，默认取 `dataIndex` 值 |
+| searchRenderIndex      | `number`            | `-`        | `列`处于搜索表单时, 渲染的顺序  |
+| searchLabel          | `string`  | `-`        | `列`处于搜索表单时，其具体的字段参数，默认取 `title`值  |
+| searchEnum          | `Array<Record<string, any>>`  | `-`        | 下拉枚举列表，当 `searchType` 为 `select`、`radio` 时生效 |
+| searchLabelKey      | `string`                    | `-`    | 下拉枚举列表 `label key`，当 `searchType` 为 `select`、`radio` 时生效, 默认使用 `label`  |
+| searchValueKey       | `string`                    | `-` | 下拉枚举列表 `value key`，当 `searchType` 为 `select`、`radio` 时生效, 默认使用 `value` |
+| defaultSearchValue    | `any`  | `-`       | `列`处于搜索表单时，对应的默认值              |
+| formComponentProps    | `Record<string, any>`  | `-`       | 表单组件的 props，将直接传递给组件              |
+
+### Context API
+
+
+
+```typescript jsx
+import type { FilterValue, SorterResult } from "antd/es/table/interface";
+
+export interface ChapandaTableFns {
+    /**
+      * 搜索方法
+      * @param sParams - 搜索参数
+      * @param filters - 过滤参数
+      * @param sorter - 排序参数
+     */
+	search?: <dataSourceT extends Record<string, any>>(
+		sParams?: Record<string, any>,
+		filters?: Record<string, FilterValue | null>,
+		sorter?: SorterResult<dataSourceT> | SorterResult<dataSourceT>[],
+	) => void;
+    /**
+      * 获取搜索参数
+      * @return sParams - 搜索参数
+      * @return filters - 过滤参数
+      * @return sorter - 排序参数
+     */
+	getSearchParams?: <dataSourceT extends Record<string, any>>() => {
+		params: Record<string, any>;
+		filters: Record<string, FilterValue | null>;
+		sorter: SorterResult<dataSourceT> | SorterResult<dataSourceT>[];
+	};
+     /**
+      * 获取搜索区搜索参数，它不包含过滤参数和排序参数
+      * @return sParams - 搜索参数
+     */
+	getFormFilterParams?: () =>  Record<string, any>;
+	[key: string]: any;
+}
+
+export type IChapandaCompProCtxKeys = "tablePro";
+export interface IChapandaCompProCtx {
+	tablePro?: ChapandaTableFns;
+}
+
+export type UncertainFunction<T = any> = (...arg: any[]) => T | undefined;
+export interface IChapandaContext {
+	expose:
+		| null
+		| ((
+				scope: IChapandaCompProCtxKeys,
+				name: keyof ChapandaTableFns,
+				fn: UncertainFunction | null,
+		  ) => void);
+	getFunc:
+		| null
+		| ((
+				scope: IChapandaCompProCtxKeys,
+		  ) => IChapandaCompProCtx[IChapandaCompProCtxKeys]);
+}
+
+```

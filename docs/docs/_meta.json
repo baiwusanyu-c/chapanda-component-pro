@@ -5,11 +5,6 @@
     "activeMatch": "/guide/"
   },
   {
-    "text": "Guide-demo",
-    "link": "/guide-demo/",
-    "activeMatch": "/guide-demo/"
-  },
-  {
     "text": "组件",
     "items": [
       {
@@ -21,6 +16,11 @@
         "text": "skeleton-pro",
         "link": "/components/skeleton-pro",
         "activeMatch": "/components/skeleton-pro"
+      },
+      {
+        "text": "nav-card",
+        "link": "/components/nav-card",
+        "activeMatch": "/components/nav-card"
       }
     ]
   }

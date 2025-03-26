@@ -4,9 +4,9 @@ import {
   ChaPandaTablePro as ProTable,
 } from '@chapanda/component-pro'
 import type { ProColumns } from '@chapanda/component-pro'
-import {Button, ConfigProvider} from "antd";
+import { Button, ConfigProvider} from "antd";
 import { genChaPandaAntdTheme } from "@chapanda/style-preset/antd";
-import {useContext, useState} from "react";
+import { useContext, useState} from "react";
 import dayjs from 'dayjs'
 const valueEnum = {
   0: 'close',

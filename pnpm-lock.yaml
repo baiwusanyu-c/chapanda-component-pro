@@ -50,9 +50,36 @@ importers:
       '@chapanda/component-pro':
         specifier: workspace:*
         version: link:../packages/component-pro
+      '@chapanda/style-preset':
+        specifier: ^1.4.9
+        version: 1.4.9(@ant-design/colors@7.2.0)(antd@5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(element-plus@2.9.4(vue@3.5.13(typescript@5.7.3)))(tailwindcss@3.4.17)(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))(vant@4.9.17(vue@3.5.13(typescript@5.7.3)))
+      '@chapanda/style-preset-antd':
+        specifier: ^1.4.9
+        version: 1.4.9(@ant-design/colors@7.2.0)(antd@5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
+      '@chapanda/style-preset-base':
+        specifier: ^1.4.9
+        version: 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
+      '@chapanda/style-preset-ep':
+        specifier: ^1.4.9
+        version: 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(element-plus@2.9.4(vue@3.5.13(typescript@5.7.3)))
+      '@chapanda/style-preset-tailwind':
+        specifier: ^1.4.9
+        version: 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(tailwindcss@3.4.17)
+      '@chapanda/style-preset-unocss':
+        specifier: ^1.4.9
+        version: 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))
+      '@chapanda/style-preset-utils':
+        specifier: ^1.4.9
+        version: 1.4.9
+      '@chapanda/style-preset-vant':
+        specifier: ^1.4.9
+        version: 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(vant@4.9.17(vue@3.5.13(typescript@5.7.3)))
       antd:
         specifier: ^5.22.4
         version: 5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -61,14 +88,14 @@ importers:
         version: 18.3.1(react@18.3.1)
       rspress:
         specifier: ^1.40.2
-        version: 1.43.5(webpack@5.98.0)
+        version: 1.43.5(webpack@5.98.0(esbuild@0.23.1))
     devDependencies:
       '@rspress/plugin-playground':
         specifier: latest
-        version: 1.43.9(@rspress/core@1.43.5(webpack@5.98.0))(monaco-editor@0.52.2)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 1.43.9(@rspress/core@1.43.5(webpack@5.98.0(esbuild@0.23.1)))(monaco-editor@0.52.2)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@rspress/plugin-preview':
         specifier: latest
-        version: 1.43.9(@babel/core@7.26.10)(@rspress/core@1.43.5(webpack@5.98.0))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(solid-js@1.9.5)
+        version: 1.43.9(@babel/core@7.26.10)(@rspress/core@1.43.5(webpack@5.98.0(esbuild@0.23.1)))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(solid-js@1.9.5)
       '@types/node':
         specifier: ^18.11.17
         version: 18.19.80
@@ -4158,7 +4185,7 @@ packages:
     hasBin: true
 
   pify@2.3.0:
-    resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
+    resolution: {integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=}
     engines: {node: '>=0.10.0'}
 
   pify@3.0.0:
@@ -4230,10 +4257,6 @@ packages:
 
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  postcss@8.5.1:
-    resolution: {integrity: sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
@@ -6116,6 +6139,14 @@ snapshots:
     transitivePeerDependencies:
       - baiwusanyu-utils
 
+  '@chapanda/style-preset-unocss@1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))':
+    dependencies:
+      '@chapanda/style-preset-base': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
+      '@chapanda/style-preset-utils': 1.4.9
+      unocss: 0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+    transitivePeerDependencies:
+      - baiwusanyu-utils
+
   '@chapanda/style-preset-unocss@1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))':
     dependencies:
       '@chapanda/style-preset-base': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
@@ -6133,6 +6164,24 @@ snapshots:
       vant: 4.9.17(vue@3.5.13(typescript@5.7.3))
     transitivePeerDependencies:
       - baiwusanyu-utils
+
+  '@chapanda/style-preset@1.4.9(@ant-design/colors@7.2.0)(antd@5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(element-plus@2.9.4(vue@3.5.13(typescript@5.7.3)))(tailwindcss@3.4.17)(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))(vant@4.9.17(vue@3.5.13(typescript@5.7.3)))':
+    dependencies:
+      '@chapanda/style-preset-antd': 1.4.9(@ant-design/colors@7.2.0)(antd@5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
+      '@chapanda/style-preset-base': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))
+      '@chapanda/style-preset-ep': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(element-plus@2.9.4(vue@3.5.13(typescript@5.7.3)))
+      '@chapanda/style-preset-tailwind': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(tailwindcss@3.4.17)
+      '@chapanda/style-preset-unocss': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))
+      '@chapanda/style-preset-utils': 1.4.9
+      '@chapanda/style-preset-vant': 1.4.9(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(vant@4.9.17(vue@3.5.13(typescript@5.7.3)))
+    transitivePeerDependencies:
+      - '@ant-design/colors'
+      - antd
+      - baiwusanyu-utils
+      - element-plus
+      - tailwindcss
+      - unocss
+      - vant
 
   '@chapanda/style-preset@1.4.9(@ant-design/colors@7.2.0)(antd@5.23.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(baiwusanyu-utils@1.1.2(ansi-colors@4.1.3)(dayjs@1.11.13))(element-plus@2.9.4(vue@3.5.13(typescript@5.7.3)))(tailwindcss@3.4.17)(unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)))(vant@4.9.17(vue@3.5.13(typescript@5.7.3)))':
     dependencies:
@@ -6467,11 +6516,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@mdx-js/loader@2.3.0(webpack@5.98.0)':
+  '@mdx-js/loader@2.3.0(webpack@5.98.0(esbuild@0.23.1))':
     dependencies:
       '@mdx-js/mdx': 2.3.0
       source-map: 0.7.4
-      webpack: 5.98.0
+      webpack: 5.98.0(esbuild@0.23.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -6888,9 +6937,9 @@ snapshots:
     optionalDependencies:
       react-refresh: 0.16.0
 
-  '@rspress/core@1.43.5(webpack@5.98.0)':
+  '@rspress/core@1.43.5(webpack@5.98.0(esbuild@0.23.1))':
     dependencies:
-      '@mdx-js/loader': 2.3.0(webpack@5.98.0)
+      '@mdx-js/loader': 2.3.0(webpack@5.98.0(esbuild@0.23.1))
       '@mdx-js/mdx': 2.3.0
       '@mdx-js/react': 2.3.0(react@18.3.1)
       '@rsbuild/core': 1.2.3
@@ -6991,12 +7040,12 @@ snapshots:
       '@rspress/runtime': 1.43.5
       medium-zoom: 1.1.0
 
-  '@rspress/plugin-playground@1.43.9(@rspress/core@1.43.5(webpack@5.98.0))(monaco-editor@0.52.2)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@rspress/plugin-playground@1.43.9(@rspress/core@1.43.5(webpack@5.98.0(esbuild@0.23.1)))(monaco-editor@0.52.2)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@mdx-js/mdx': 2.3.0
       '@monaco-editor/react': 4.6.0(monaco-editor@0.52.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@oxidation-compiler/napi': 0.2.0
-      '@rspress/core': 1.43.5(webpack@5.98.0)
+      '@rspress/core': 1.43.5(webpack@5.98.0(esbuild@0.23.1))
       '@rspress/shared': 1.43.9
       react: 18.3.1
       react-router-dom: 6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7008,7 +7057,7 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@rspress/plugin-preview@1.43.9(@babel/core@7.26.10)(@rspress/core@1.43.5(webpack@5.98.0))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(solid-js@1.9.5)':
+  '@rspress/plugin-preview@1.43.9(@babel/core@7.26.10)(@rspress/core@1.43.5(webpack@5.98.0(esbuild@0.23.1)))(react-router-dom@6.30.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(solid-js@1.9.5)':
     dependencies:
       '@rsbuild/core': 1.2.3
       '@rsbuild/plugin-babel': 1.0.4(@rsbuild/core@1.2.3)
@@ -7016,7 +7065,7 @@ snapshots:
       '@rsbuild/plugin-react': 1.1.1(@rsbuild/core@1.2.3)
       '@rsbuild/plugin-sass': 1.2.2(@rsbuild/core@1.2.3)
       '@rsbuild/plugin-solid': 1.0.5(@babel/core@7.26.10)(@rsbuild/core@1.2.3)(solid-js@1.9.5)
-      '@rspress/core': 1.43.5(webpack@5.98.0)
+      '@rspress/core': 1.43.5(webpack@5.98.0(esbuild@0.23.1))
       '@rspress/shared': 1.43.9
       '@rspress/theme-default': 1.43.9
       lodash: 4.17.21
@@ -7393,6 +7442,17 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
+  '@unocss/astro@0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
+    dependencies:
+      '@unocss/core': 0.62.4
+      '@unocss/reset': 0.62.4
+      '@unocss/vite': 0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+    optionalDependencies:
+      vite: 6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+
   '@unocss/astro@0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
     dependencies:
       '@unocss/core': 0.62.4
@@ -7523,6 +7583,21 @@ snapshots:
   '@unocss/transformer-variant-group@0.62.4':
     dependencies:
       '@unocss/core': 0.62.4
+
+  '@unocss/vite@0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@rollup/pluginutils': 5.1.4(rollup@4.34.6)
+      '@unocss/config': 0.62.4
+      '@unocss/core': 0.62.4
+      '@unocss/inspector': 0.62.4
+      chokidar: 3.6.0
+      magic-string: 0.30.17
+      tinyglobby: 0.2.10
+      vite: 6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
 
   '@unocss/vite@0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
     dependencies:
@@ -10384,12 +10459,6 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.1:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
   postcss@8.5.3:
     dependencies:
       nanoid: 3.3.8
@@ -11004,10 +11073,10 @@ snapshots:
     dependencies:
       fs-extra: 11.3.0
 
-  rspress@1.43.5(webpack@5.98.0):
+  rspress@1.43.5(webpack@5.98.0(esbuild@0.23.1)):
     dependencies:
       '@rsbuild/core': 1.2.3
-      '@rspress/core': 1.43.5(webpack@5.98.0)
+      '@rspress/core': 1.43.5(webpack@5.98.0(esbuild@0.23.1))
       '@rspress/shared': 1.43.5
       cac: 6.7.14
       chokidar: 3.6.0
@@ -11526,14 +11595,16 @@ snapshots:
     dependencies:
       streamx: 2.22.0
 
-  terser-webpack-plugin@5.3.14(webpack@5.98.0):
+  terser-webpack-plugin@5.3.14(esbuild@0.23.1)(webpack@5.98.0(esbuild@0.23.1)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
       terser: 5.39.0
-      webpack: 5.98.0
+      webpack: 5.98.0(esbuild@0.23.1)
+    optionalDependencies:
+      esbuild: 0.23.1
 
   terser@5.39.0:
     dependencies:
@@ -11806,6 +11877,32 @@ snapshots:
 
   universalify@2.0.1: {}
 
+  unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)):
+    dependencies:
+      '@unocss/astro': 0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+      '@unocss/cli': 0.62.4(rollup@4.34.6)
+      '@unocss/core': 0.62.4
+      '@unocss/postcss': 0.62.4(postcss@8.5.3)
+      '@unocss/preset-attributify': 0.62.4
+      '@unocss/preset-icons': 0.62.4
+      '@unocss/preset-mini': 0.62.4
+      '@unocss/preset-tagify': 0.62.4
+      '@unocss/preset-typography': 0.62.4
+      '@unocss/preset-uno': 0.62.4
+      '@unocss/preset-web-fonts': 0.62.4
+      '@unocss/preset-wind': 0.62.4
+      '@unocss/transformer-attributify-jsx': 0.62.4
+      '@unocss/transformer-compile-class': 0.62.4
+      '@unocss/transformer-directives': 0.62.4
+      '@unocss/transformer-variant-group': 0.62.4
+      '@unocss/vite': 0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+    optionalDependencies:
+      vite: 6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - postcss
+      - rollup
+      - supports-color
+
   unocss@0.62.4(postcss@8.5.3)(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)):
     dependencies:
       '@unocss/astro': 0.62.4(rollup@4.34.6)(vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
@@ -11939,10 +12036,25 @@ snapshots:
       replace-ext: 2.0.0
       teex: 1.0.1
 
+  vite@6.1.0(@types/node@18.19.80)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0):
+    dependencies:
+      esbuild: 0.24.2
+      postcss: 8.5.3
+      rollup: 4.34.6
+    optionalDependencies:
+      '@types/node': 18.19.80
+      fsevents: 2.3.3
+      jiti: 2.4.2
+      sass: 1.84.0
+      sass-embedded: 1.85.1
+      terser: 5.39.0
+      tsx: 4.19.2
+      yaml: 2.7.0
+
   vite@6.1.0(@types/node@22.13.1)(jiti@2.4.2)(sass-embedded@1.85.1)(sass@1.84.0)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
-      postcss: 8.5.1
+      postcss: 8.5.3
       rollup: 4.34.6
     optionalDependencies:
       '@types/node': 22.13.1
@@ -11985,7 +12097,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack@5.98.0:
+  webpack@5.98.0(esbuild@0.23.1):
     dependencies:
       '@types/eslint-scope': 3.7.7
       '@types/estree': 1.0.6
@@ -12007,7 +12119,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.14(webpack@5.98.0)
+      terser-webpack-plugin: 5.3.14(esbuild@0.23.1)(webpack@5.98.0(esbuild@0.23.1))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
