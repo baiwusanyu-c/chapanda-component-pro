@@ -4,7 +4,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 当推送到 main 分支时触发 workflow
+      - main  # 当推送到 main 分支时触发 workflow
 # 设置执行的工作
 jobs:
   build:
