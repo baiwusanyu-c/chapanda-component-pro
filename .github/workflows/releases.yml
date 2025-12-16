@@ -52,18 +52,18 @@ jobs:
           date
         shell: bash
 
-      # - name: Set npmrc for all packages
-      #   run: |
-      #     for package in $(find dist/* -maxdepth 0 -type d); do
-      #       echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ${package}/.npmrc
-      #     done
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-#
-      # - name: Set npmrc for root packages
-      #   run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > dist/.npmrc
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Set npmrc for all packages
+        run: |
+          for package in $(find dist/* -maxdepth 0 -type d); do
+            echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ${package}/.npmrc
+          done
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Set npmrc for root packages
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > dist/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
         run: pnpm run publish:script
