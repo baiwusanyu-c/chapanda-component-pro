@@ -1,4 +1,3 @@
-/*
 import {
   ChapandaContext,
   ChaPandaTablePro as ProTable,
@@ -102,10 +101,10 @@ const columns: ProColumns<TableListItem>[] = [
     title: '时间',
     dataIndex: 'date',
     searchIndex: 'date',
-    searchType: 'date-picker',
-    defaultSearchValue: dayjs('2018-05-05'),
+    searchType: 'range-picker',
+    defaultSearchValue: [dayjs('2018-05-05'), dayjs('2018-05-05')],
     formComponentProps: {
-      picker: "week"
+      // picker: "week"
     },
   },
   {
@@ -209,7 +208,6 @@ export default () => {
 
   );
 };
-*/
 
 /*import {
   NavCard,
@@ -332,6 +330,7 @@ export default () => {
   );
 };*/
 
+/*
 import {
   SkeletonPro,
 } from '@chapanda/component-pro'
@@ -375,3 +374,4 @@ export default () => {
 
   );
 };
+*/

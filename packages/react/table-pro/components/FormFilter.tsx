@@ -11,6 +11,7 @@ import type { ChapandaTableProProps } from "../types.ts";
 import { Button, Form, Input, Select, Radio, DatePicker } from "antd";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
 import { ChapandaContext } from "../../provider";
+const { RangePicker } = DatePicker;
 export interface FormFilterProps<DataSource, U> {
 	columns?: ChapandaTableProProps<DataSource, U>["columns"];
 	onSubmit?: (params: U) => void;
@@ -144,6 +145,9 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 					}
 					if (searchType === "date-picker") {
 						formComp = <DatePicker {...formComponentProps} />;
+					}
+					if (searchType === "range-picker") {
+						formComp = <RangePicker {...formComponentProps} />;
 					}
 					return (
 						<Form.Item

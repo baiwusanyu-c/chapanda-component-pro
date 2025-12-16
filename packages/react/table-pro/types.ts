@@ -15,7 +15,7 @@ export type RequestData<T> = {
 export interface ProColumns<RecordType = AnyObject>
 	extends ColumnType<RecordType> {
 	// 列是否开启搜索表单，目前支持有限的表单
-	searchType?: "input" | "select" | "date-picker" | "radio";
+	searchType?: "input" | "select" | "date-picker" | "radio" | "range-picker";
 	// 列处于搜索表单时，其具体的字段参数，默认是 dataIndex
 	searchIndex?: string;
 	// 列处于搜索表单时, 渲染的顺序
