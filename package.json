@@ -3,7 +3,7 @@
   "description": "chapanda component pro",
   "private": false,
   "type": "module",
-  "version": "0.0.1-beta.10",
+  "version": "0.0.1-beta.11",
   "packageManager": "pnpm@9.15.0",
   "keywords": [
     "typescript",
