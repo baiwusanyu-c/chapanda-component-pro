@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n}from"./chunks/framework.dpMA8IVw.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/BubbleAgent.md","filePath":"components/BubbleAgent.md"}'),o={name:"components/BubbleAgent.md"};function a(s,c,r,p,m,l){return n(),t("div")}const i=e(o,[["render",a]]);export{d as __pageData,i as default};

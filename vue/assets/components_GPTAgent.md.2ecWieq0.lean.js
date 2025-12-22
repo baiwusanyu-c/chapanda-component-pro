@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n}from"./chunks/framework.dpMA8IVw.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/GPTAgent.md","filePath":"components/GPTAgent.md"}'),o={name:"components/GPTAgent.md"};function a(s,c,r,p,m,_){return n(),t("div")}const f=e(o,[["render",a]]);export{i as __pageData,f as default};

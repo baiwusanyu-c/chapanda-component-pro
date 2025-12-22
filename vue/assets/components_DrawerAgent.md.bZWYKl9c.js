@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r}from"./chunks/framework.dpMA8IVw.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/DrawerAgent.md","filePath":"components/DrawerAgent.md"}'),n={name:"components/DrawerAgent.md"};function a(o,s,c,p,m,_){return r(),t("div")}const f=e(n,[["render",a]]);export{i as __pageData,f as default};
