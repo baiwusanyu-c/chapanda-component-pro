@@ -28,10 +28,10 @@ export function SkeletonTable(props: SkeletonProProps) {
 		};
 	});
 
-	const dataSource = listRow.map(() => {
+	const dataSource = listRow.map((_, rIndex) => {
 		const item: Record<string, string> = {};
 		listCol.forEach((_column, index: number) => {
-			item[`SkeletonTable-${index}`] = "data-source";
+			item[`SkeletonTable-${index}`] = `data-source-${index}-${rIndex}`;
 		});
 		return item;
 	});
@@ -74,7 +74,14 @@ export function SkeletonTable(props: SkeletonProProps) {
 						/>
 					</div>
 				</div>
-				<Table columns={columns} pagination={false} dataSource={dataSource} />
+				<Table
+					columns={columns}
+					pagination={false}
+					dataSource={dataSource}
+					rowKey={(r) => {
+						return JSON.stringify(r);
+					}}
+				/>
 				<div className="cbd-skeleton-pro-table-page">
 					<div className="cbd-skeleton-pro-table-pager">
 						<Skeleton.Input active={active} block={true} {...skeletonProps} />
