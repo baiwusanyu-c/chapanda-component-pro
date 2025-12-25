@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.dpMA8IVw.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/Header.md","filePath":"components/Header.md"}'),o={name:"components/Header.md"};function r(n,s,c,d,p,m){return a(),t("div")}const f=e(o,[["render",r]]);export{i as __pageData,f as default};

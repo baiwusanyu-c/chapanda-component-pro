@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.dpMA8IVw.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/ChatView.md","filePath":"components/ChatView.md"}'),o={name:"components/ChatView.md"};function n(s,c,r,i,p,m){return a(),t("div")}const f=e(o,[["render",n]]);export{d as __pageData,f as default};
