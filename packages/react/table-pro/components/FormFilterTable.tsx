@@ -19,6 +19,11 @@ export function FormFilterTable<
 		request,
 		params,
 		dataSource,
+		pagination = {
+			pageSize: 10,
+			current: 1,
+			total: 0,
+		},
 	} = props;
 
 	// 判断是否渲染 Divider
@@ -27,19 +32,17 @@ export function FormFilterTable<
 		setHasFilter(isRender);
 	}
 
-	const [searchParams, setSearchParams] = useState<Record<string, any>>({
-		pageSize: 10,
-		current: 1,
-		total: 0,
-	});
+	const [searchParams, setSearchParams] = useState<Record<string, any>>(
+		pagination as Record<string, any>,
+	);
 
 	// 过滤器提交
 	function onFilterFormSubmit(params: any) {
 		const resolveParams = {
 			...searchParams,
 			...params,
-			pageSize: 10,
-			current: 1,
+			pageSize: searchParams.pageSize || 10,
+			current: (pagination as Record<string, any>).current || 1,
 		};
 		setSearchParams(resolveParams);
 		getDataSource(resolveParams);
@@ -50,8 +53,8 @@ export function FormFilterTable<
 		const resolveParams = {
 			...searchParams,
 			...params,
-			pageSize: 10,
-			current: 1,
+			pageSize: (pagination as Record<string, any>).pageSize || 10,
+			current: (pagination as Record<string, any>).current || 1,
 		};
 		setSearchParams(resolveParams);
 		getDataSource(resolveParams);
