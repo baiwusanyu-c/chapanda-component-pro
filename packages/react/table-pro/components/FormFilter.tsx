@@ -39,9 +39,9 @@ export function FormFilter<dataSource extends Record<string, any>, U = any>(
 		});
 	}
 
-	const [columnsInner, setColumnsInner] = useState(columns);
+	const [columnsInner, setColumnsInner] = useState([...columns || []]);
 	useEffect(() => {
-		setColumnsInner(columns);
+		setColumnsInner([...columns || []]);
 	}, [columns]);
 
 	const onSelect = useCallback(
